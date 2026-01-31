@@ -1,8 +1,39 @@
-# React + Vite
+# Navegante Sonoro - Sistema de Control y Visualización
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este repositorio contiene el código fuente del proyecto **Navegante Sonoro**, desarrollado con React, Vite y Three.js.
 
-Currently, two official plugins are available:
+## ⚖️ Aviso Legal y Derechos de Autor
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Copyright (c) 2026 - John Duarte (Zipaquira Digital)**
+**Contacto:** +57 3195301551
+
+### 1. Titularidad
+El diseño lógico, la arquitectura de software y el código fuente original son propiedad intelectual de **John Duarte**. Este proyecto se entrega bajo un acuerdo de uso específico para la marca/empresa **Navegante Sonoro**.
+
+### 2. Restricciones de Uso y Reproducción
+* **PROHIBIDA LA REPRODUCCIÓN TOTAL O PARCIAL:** No se autoriza la copia, duplicación, distribución o venta de este código fuente para otros proyectos ajenos a "Navegante Sonoro".
+* **LIMITACIÓN DE LICENCIA:** Se otorga permiso exclusivamente para la **modificación y mantenimiento** del código con el fin de actualizar el sitio web oficial del proyecto.
+* **PROHIBICIÓN DE DERIVADOS:** No está permitida la creación de productos de software basados en esta arquitectura para fines comerciales de terceros sin el consentimiento expreso por escrito del autor original.
+
+### 3. Integridad de la Autoría
+Cualquier modificación realizada por terceros debe mantener los créditos del autor original en este archivo y en las cabeceras de los archivos principales de la arquitectura.
+
+---
+
+## 🚀 Especificaciones Técnicas
+
+* **Framework:** React 18
+* **Herramienta de Construcción:** Vite 7
+* **Librerías Principales:** * `Three.js` para renderizado 3D.
+    * `React Router Dom` para navegación.
+    * `Bootstrap` para maquetación base.
+* **PWA:** Configurado con `vite-plugin-pwa`.
+
+## 🛠️ Instalación y Desarrollo
+
+Para realizar modificaciones en el entorno local:
+
+1. Clonar el repositorio.
+2. Instalar dependencias:
+   ```bash
+   npm install
