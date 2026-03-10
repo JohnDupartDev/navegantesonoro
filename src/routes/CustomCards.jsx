@@ -1,17 +1,9 @@
 import 'bootstrap/dist/css/bootstrap.min.css'; // Asegúrate de importar Bootstrap
 import { Link } from 'react-router-dom';
 
-// IMPORTACIÓN DE IMÁGENES DE FONDO (Desde la carpeta assets para que Vite las procese)
-import estacionImg from '../assets/image/estacion.jpg';
-import casanavasImg from '../assets/image/casanavas.jpg';
-import plazaImg from '../assets/image/plaza.jpg';
-import independenciaImg from '../assets/image/independencia.jpg';
-import funzipaImg from '../assets/image/funzipa.jpg';
-import catedralImg from '../assets/image/catedral.jpg';
-
 const CustomCards = () => {
-  // Definimos la ruta del icono usando la carpeta public directamente para evitar errores de importación
-  const calendarIconPath = "/image/calendar.png";
+  // Definimos la ruta base para las imágenes en la carpeta public
+  const path = "/images/";
 
   return (
     <div className="container px-1 " id="custom-cards">
@@ -23,7 +15,7 @@ const CustomCards = () => {
           <div
             className="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
             style={{
-              backgroundImage: `url(${estacionImg})`,
+              backgroundImage: `url(${path}estacion.jpg)`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
@@ -52,7 +44,6 @@ const CustomCards = () => {
                 <li className="d-flex align-items-center mb-3 text-warning">
                   <small>Capítulo 1</small>
                 </li>
-                
               </ul>
             </div>
           </div>
@@ -63,7 +54,7 @@ const CustomCards = () => {
           <div
             className="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
             style={{
-              backgroundImage: `url(${casanavasImg})`,
+              backgroundImage: `url(${path}casanavas.jpg)`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
@@ -92,7 +83,6 @@ const CustomCards = () => {
                 <li className="d-flex align-items-center mb-3 text-warning">
                   <small>Capítulo 2</small>
                 </li>
-               
               </ul>
             </div>
           </div>
@@ -103,7 +93,7 @@ const CustomCards = () => {
           <div
             className="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
             style={{
-              backgroundImage: `url(${plazaImg})`,
+              backgroundImage: `url(${path}plaza.jpg)`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
@@ -132,7 +122,6 @@ const CustomCards = () => {
                 <li className="d-flex align-items-center mb-3 text-warning">
                   <small>Capítulo 3</small>
                 </li>
-                
               </ul>
             </div>
           </div>
@@ -143,7 +132,7 @@ const CustomCards = () => {
           <div
             className="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
             style={{
-              backgroundImage: `url(${independenciaImg})`,
+              backgroundImage: `url(${path}independencia.jpg)`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
@@ -172,7 +161,6 @@ const CustomCards = () => {
                 <li className="d-flex align-items-center mb-3 text-warning">
                   <small>Capítulo 4</small>
                 </li>
-                
               </ul>
             </div>
           </div>
@@ -183,7 +171,7 @@ const CustomCards = () => {
           <div
             className="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
             style={{
-              backgroundImage: `url(${funzipaImg})`,
+              backgroundImage: `url(${path}funzipa.jpg)`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
@@ -212,7 +200,6 @@ const CustomCards = () => {
                 <li className="d-flex align-items-center mb-3 text-warning">
                   <small>Capítulo 5</small>
                 </li>
-               
               </ul>
             </div>
           </div>
@@ -223,7 +210,7 @@ const CustomCards = () => {
           <div
             className="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
             style={{
-              backgroundImage: `url(${catedralImg})`,
+              backgroundImage: `url(${path}catedral.jpg)`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
@@ -252,7 +239,6 @@ const CustomCards = () => {
                 <li className="d-flex align-items-center mb-3 text-warning">
                   <small>Capítulo 6 </small>
                 </li>
-                
               </ul>
             </div>
           </div>

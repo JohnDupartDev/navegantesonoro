@@ -2,11 +2,12 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CustomCards from './CustomCards';
 
-// Corrección de rutas: se usa "../" para salir de la carpeta "routes" y entrar a "assets"
-import ondasSvg from '../assets/image/ondas.svg';
-import imgAliados from '../assets/image/img_aliados.jpg';
-
 const Hero = () => {
+  // Definimos la ruta base para las imágenes en la carpeta public
+  const path = "/images/";
+  const ondasSvg = `${path}ondas.svg`;
+  const imgAliados = `${path}img_aliados.jpg`;
+
   // Estilos en objeto para mantener el código limpio y simular clases de CSS-in-JS
   const styles = {
     container: {
