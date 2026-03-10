@@ -2,6 +2,10 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CustomCards from './CustomCards';
 
+// Corrección de rutas: se usa "../" para salir de la carpeta "routes" y entrar a "assets"
+import ondasSvg from '../assets/image/ondas.svg';
+import imgAliados from '../assets/image/img_aliados.jpg';
+
 const Hero = () => {
   // Estilos en objeto para mantener el código limpio y simular clases de CSS-in-JS
   const styles = {
@@ -37,7 +41,7 @@ const Hero = () => {
       maxWidth: '500px'
     },
     bgPattern: {
-        backgroundImage: "url('/image/ondas.svg')", 
+        backgroundImage: `url(${ondasSvg})`, 
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         opacity: 0.3, // Hacemos las ondas sutiles para no distraer
@@ -71,7 +75,7 @@ const Hero = () => {
         <div style={styles.imageContainer}>
           <img
             className="d-block mx-auto"
-            src="/image/img_aliados.jpg"
+            src={imgAliados}
             alt="Aliados de la Ruta Sonora"
             style={styles.mainImage}
           />

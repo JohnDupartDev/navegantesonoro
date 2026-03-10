@@ -1,7 +1,30 @@
-
 /* eslint-disable react/prop-types */
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
+// IMPORTACIÓN DE LOGOS
+import logoDesal from '../assets/image/logodsal.jpg';
+import logoSandu from '../assets/image/logosandu.jpg';
+
+// IMPORTACIÓN DE IMÁGENES - DESAL
+import desalImg from '../assets/image/desal.jpg';
+import dsal1 from '../assets/image/dsal1.jpg';
+import dsal3 from '../assets/image/dsal3.jpg';
+import dsal4 from '../assets/image/dsal4.jpg';
+import dsal5 from '../assets/image/dsal5.jpg';
+import dsal6 from '../assets/image/dsal6.jpg';
+import dsal7 from '../assets/image/dsal7.jpg';
+
+// IMPORTACIÓN DE IMÁGENES - SANDWICHEROS
+import sa1 from '../assets/image/sa1.jpg';
+import sa2 from '../assets/image/sa2.jpg';
+import sanduImg from '../assets/image/sandu.jpg';
+import sa3 from '../assets/image/sa3.jpg';
+
+// Iconos Sociales
+import whatsappIcon from '../assets/image/whastapp.svg';
+import instagramIcon from '../assets/image/instagram.png';
+import facebookIcon from '../assets/image/facebook.png';
 
 /* -------------------------------------------------------------------------- */
 /* ESTILOS INLINE (UX TIPO APP)                                               */
@@ -57,12 +80,11 @@ const styles = {
     color: '#ffda6a',
     wordWrap: 'break-word'
   },
-  // --- NUEVOS ESTILOS iOS APP ---
   iosCard: {
-    background: 'rgba(0, 0, 0, 0.25)', // Fondo oscuro translúcido para contraste
-    borderRadius: '18px', // Bordes muy redondeados estilo iOS
+    background: 'rgba(0, 0, 0, 0.25)', 
+    borderRadius: '18px', 
     padding: '16px',
-    marginBottom: '12px', // Espacio entre tarjetas
+    marginBottom: '12px', 
     display: 'flex',
     alignItems: 'center',
     border: '1px solid rgba(255, 255, 255, 0.08)',
@@ -71,9 +93,9 @@ const styles = {
   iosIcon: {
     width: '48px',
     height: '48px',
-    minWidth: '48px', // Asegura que no se aplaste
+    minWidth: '48px', 
     background: 'rgba(255, 255, 255, 0.1)',
-    borderRadius: '12px', // Cuadrado redondeado (Squircle)
+    borderRadius: '12px', 
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -90,10 +112,9 @@ const ALIADOS_DATA = [
     id: 'desal',
     title: 'Desal Colombia',
     subtitle: 'Bienestar & Sal',
-    logo: '/image/logodsal.jpg',
+    logo: logoDesal,
     description: (
       <>
-        {/* Caja de Descuento */}
         <div style={styles.promoBox}>
           <strong className="text-uppercase">💎 Beneficio Navegante:</strong>
           <p className="m-0 small mt-1">
@@ -109,9 +130,7 @@ const ALIADOS_DATA = [
 
         <h6 className="text-warning fw-bold small text-uppercase mb-3">✨ Experiencia Ritual Bigua Sonoro:</h6>
         
-        {/* LISTA ESTILO iOS APP (MODIFICADA) */}
         <div className="d-flex flex-column mb-4">
-          
           <div style={styles.iosCard}>
             <div style={styles.iosIcon}>🤲</div>
             <div>
@@ -140,8 +159,7 @@ const ALIADOS_DATA = [
             <div style={styles.iosIcon}>🧘</div>
             <div>
               <strong className="d-block text-white mb-1">Renovación mental</strong>
-              <span className="small text-white-50 lh-sm d-block"> Descanso en sillas relajantes, aromaterapia, musicoterapia y cojín herbal con esencias relajantes y bebida ancestral. 
-            Bebida especial.</span>
+              <span className="small text-white-50 lh-sm d-block"> Descanso en sillas relajantes, aromaterapia, musicoterapia y cojín herbal con esencias relajantes y bebida ancestral.</span>
             </div>
           </div>
 
@@ -152,7 +170,6 @@ const ALIADOS_DATA = [
               <span className="small text-white-50 lh-sm d-block">La mágica sensación de caminar descalzo sobre la sal</span>
             </div>
           </div>
-
         </div>
         
         <p className="small text-info fst-italic">🎁 Obsequio: Sales de baño relajantes (50g).</p>
@@ -162,8 +179,8 @@ const ALIADOS_DATA = [
     ctaLink: 'https://wa.me/573243314035?text=¡Hola! me gustaría hacer una reserva aliados Ruta Sonora',
     ctaText: '🧖‍♀️ Reservar Ritual',
     images: [
-      '/image/desal.jpg', '/image/dsal1.jpg', '/image/dsal3.jpg',
-      '/image/dsal4.jpg', '/image/dsal5.jpg', '/image/dsal6.jpg', '/image/dsal7.jpg'
+      desalImg, dsal1, dsal3,
+      dsal4, dsal5, dsal6, dsal7
     ],
     social: {
       whatsapp: 'https://wa.me/573007502396?text=¡Hola! Te contacto por medio de Navegante Sonoro',
@@ -175,7 +192,7 @@ const ALIADOS_DATA = [
     id: 'sandwicheros',
     title: 'Sandwicheros',
     subtitle: 'Universo de Sabores',
-    logo: '/image/logosandu.jpg',
+    logo: logoSandu,
     description: (
       <>
         <p className="lead fw-bold text-warning mb-2">
@@ -194,7 +211,7 @@ const ALIADOS_DATA = [
     ctaLink: 'https://wa.me/573116693937?text=¡Hola! Te contacto por medio de Navegante Sonoro', 
     ctaText: '🍔 Ver Menú Galáctico',
     images: [
-      '/image/sa1.jpg', '/image/sa2.jpg', '/image/sandu.jpg', '/image/sa3.jpg'
+      sa1, sa2, sanduImg, sa3
     ],
     social: {
       whatsapp: 'https://wa.me/573116693937?text=¡Hola! Te contacto por medio de Navegante Sonoro',
@@ -214,17 +231,17 @@ const SocialLinks = ({ social }) => (
     <div className="d-flex justify-content-center gap-4">
       {social.whatsapp && (
         <a href={social.whatsapp} target="_blank" rel="noopener noreferrer" className="opacity-75 hover-opacity-100">
-          <img src="/image/whastapp.svg" alt="WhatsApp" width={32} height={32} />
+          <img src={whatsappIcon} alt="WhatsApp" width={32} height={32} />
         </a>
       )}
       {social.instagram && (
         <a href={social.instagram} target="_blank" rel="noopener noreferrer" className="opacity-75 hover-opacity-100">
-          <img src="/image/instagram.png" alt="Instagram" width={32} height={32} />
+          <img src={instagramIcon} alt="Instagram" width={32} height={32} />
         </a>
       )}
       {social.facebook && (
         <a href={social.facebook} target="_blank" rel="noopener noreferrer" className="opacity-75 hover-opacity-100">
-          <img src="/image/facebook.png" alt="Facebook" width={32} height={32} />
+          <img src={facebookIcon} alt="Facebook" width={32} height={32} />
         </a>
       )}
     </div>
@@ -283,7 +300,6 @@ const ImageCarousel = ({ id, images }) => {
 /* -------------------------------------------------------------------------- */
 
 const Capitulo6 = () => {
-  // Carga dinámica de Bootstrap vía CDN para evitar errores de compilación
   useEffect(() => {
     const link = document.createElement('link');
     link.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css";
@@ -296,33 +312,21 @@ const Capitulo6 = () => {
     document.body.appendChild(script);
 
     return () => {
-      // Limpieza (opcional, pero buena práctica)
-      if (document.head.contains(link)) {
-        document.head.removeChild(link);
-      }
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
+      if (document.head.contains(link)) document.head.removeChild(link);
+      if (document.body.contains(script)) document.body.removeChild(script);
     };
   }, []);
 
   return (
     <div className="capitulo min-vh-100 d-flex flex-column align-items-center">
-      
-      {/* Contenedor App Móvil */}
       <div style={styles.appContainer} className="w-100 px-3">
-        
-        {/* Header */}
         <div className="text-center py-4 mb-2">
           <span className="badge bg-warning text-dark mb-2">Ruta Sonora</span>
           <h1 className="text-uppercase fw-bold text-light h2 m-0">Aliados Capítulo 6</h1>
         </div>
 
-        {/* Renderizado de Aliados */}
         {ALIADOS_DATA.map((aliado) => (
           <div key={aliado.id} style={styles.glassCard} className="fade-in-up">
-            
-            {/* Header: Avatar + Título */}
             <div className="d-flex align-items-center mb-3">
               <img 
                 src={aliado.logo} 
@@ -338,23 +342,20 @@ const Capitulo6 = () => {
               </div>
             </div>
 
-            {/* Carrusel */}
             <ImageCarousel id={aliado.id} images={aliado.images} />
 
-            {/* Descripción - CORREGIDO */}
             <div 
               className="text-light mb-4 text-white-90" 
               style={{ 
-                textAlign: 'left', // Izquierda para evitar huecos en móviles
+                textAlign: 'left', 
                 lineHeight: '1.5',
-                overflowWrap: 'break-word', // Evita que textos largos rompan el layout
+                overflowWrap: 'break-word',
                 wordBreak: 'break-word' 
               }}
             >
               {aliado.description}
             </div>
 
-            {/* CTA BUTTON */}
             <a
               href={aliado.ctaLink}
               target="_blank"
@@ -365,12 +366,10 @@ const Capitulo6 = () => {
               {aliado.ctaText}
             </a>
 
-            {/* Redes Sociales */}
             <SocialLinks social={aliado.social} />
           </div>
         ))}
 
-        {/* Botón Flotante "Volver" */}
         <div className="fixed-bottom p-3 d-flex justify-content-center" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)', pointerEvents: 'none' }}>
            <div style={{ pointerEvents: 'auto' }}>
             <Link to="/aliados" className="btn btn-success rounded-pill px-4 py-2 shadow fw-bold d-flex align-items-center gap-2">
@@ -378,7 +377,6 @@ const Capitulo6 = () => {
             </Link>
            </div>
         </div>
-
       </div>
     </div>
   );

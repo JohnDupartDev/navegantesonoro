@@ -4,6 +4,42 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { Link } from 'react-router-dom';
 
+// IMPORTACIÓN DE IMÁGENES
+import tickettourLogo from '../assets/image/tickettour.jpg';
+import sintenedorLogo from '../assets/image/sintenedor.jpg';
+import ovejaLogo from '../assets/image/oveja.jpg';
+import amoraLogo from '../assets/image/amara.png';
+import almalogo from '../assets/image/almalogo.jpg';
+import logoandreabo from '../assets/image/logoandreabo.jpg';
+
+// Imágenes de Carruseles
+import sint from '../assets/image/sint.jpg';
+import sint1 from '../assets/image/sint1.jpg';
+import sint2 from '../assets/image/sint2.jpg';
+import ove from '../assets/image/ove.jpg';
+import ove1 from '../assets/image/ove1.jpg';
+import ove2 from '../assets/image/ove2.jpg';
+import ove3 from '../assets/image/ove3.jpg';
+import amora1 from '../assets/image/amora1.jpg';
+import amora2 from '../assets/image/amora2.jpg';
+import amora3 from '../assets/image/amora3.jpg';
+import almaImg from '../assets/image/ALMA.jpg';
+import alma1 from '../assets/image/alma1.jpg';
+import alma2 from '../assets/image/alma2.jpg';
+import alma4 from '../assets/image/alma4.jpg';
+import alma5 from '../assets/image/alma5.jpg';
+import almap from '../assets/image/almap.jpg';
+import almabe from '../assets/image/almabe.jpg';
+import andree from '../assets/image/andree.jpg';
+import andre1 from '../assets/image/andre1.jpg';
+import andre2 from '../assets/image/andre2.jpg';
+import andre3 from '../assets/image/andre3.jpg';
+
+// Iconos Sociales
+import whatsappIcon from '../assets/image/whastapp.svg';
+import instagramIcon from '../assets/image/instagram.png';
+import facebookIcon from '../assets/image/facebook.png';
+
 /* -------------------------------------------------------------------------- */
 /* ESTILOS INLINE (UX TIPO APP)                                               */
 /* -------------------------------------------------------------------------- */
@@ -57,7 +93,7 @@ const ALIADOS_DATA = [
     id: 'ticketsytours',
     title: 'Tickets & Tours Zipa',
     subtitle: 'Operador Turístico',
-    logo: '/image/tickettour.jpg',
+    logo: tickettourLogo,
     description: (
       <>
         🚂 <strong>Aliado Oficial Turistren</strong>
@@ -65,10 +101,9 @@ const ALIADOS_DATA = [
         Adquiere tus tickets para disfrutar el Tren Turístico de la Sabana con nosotros. Somos operador turístico y aliado número 3 de Turistren SAS.
       </>
     ),
-    // Si no hay CTA específico, usamos el WhatsApp general
     ctaLink: 'https://wa.me/573214535698?text=¡Hola! Te contacto por medio de Navegante Sonoro',
     ctaText: '🎟️ Cotizar Tickets',
-    images: [], // Este aliado no tenía carrusel en el código original
+    images: [], 
     social: {
       whatsapp: 'https://wa.me/573214535698?text=¡Hola! Te contacto por medio de Navegante Sonoro',
       instagram: 'https://www.instagram.com/ticketstourszipa/',
@@ -79,7 +114,7 @@ const ALIADOS_DATA = [
     id: 'sintenedor',
     title: 'Sin Tenedor Burgers',
     subtitle: 'Hamburguesería Artesanal',
-    logo: '/image/sintenedor.jpg',
+    logo: sintenedorLogo,
     description: (
       <>
         🍔 <strong>¡El placer de comer con las manos!</strong>
@@ -89,7 +124,7 @@ const ALIADOS_DATA = [
     ),
     ctaLink: 'https://wa.me/573112557260?text=¡Hola! Te contacto por medio de Navegante Sonoro',
     ctaText: '🍔 Ver Menú / Pedir',
-    images: ['/image/sint.jpg', '/image/sint1.jpg', '/image/sint2.jpg'],
+    images: [sint, sint1, sint2],
     social: {
       whatsapp: 'https://wa.me/573112557260?text=¡Hola! Te contacto por medio de Navegante Sonoro',
       instagram: 'https://www.instagram.com/sintenedorburgers/',
@@ -100,7 +135,7 @@ const ALIADOS_DATA = [
     id: 'laoveja',
     title: 'La Oveja y El Lobo',
     subtitle: 'Restaurante Premiado',
-    logo: '/image/oveja.jpg',
+    logo: ovejaLogo,
     description: (
       <>
         🏆 <strong>Ganadores Múltiples:</strong>
@@ -110,7 +145,7 @@ const ALIADOS_DATA = [
     ),
     ctaLink: 'https://wa.me/573053107169?text=¡Hola! Te contacto por medio de Navegante Sonoro',
     ctaText: '🐺 Reservar Mesa',
-    images: ['/image/ove.jpg', '/image/ove1.jpg', '/image/ove2.jpg', '/image/ove3.jpg'],
+    images: [ove, ove1, ove2, ove3],
     social: {
       whatsapp: 'https://wa.me/573053107169?text=¡Hola! Te contacto por medio de Navegante Sonoro',
       instagram: 'https://www.instagram.com/laovejayellobo/',
@@ -121,7 +156,7 @@ const ALIADOS_DATA = [
     id: 'amora',
     title: 'Amora Bakery',
     subtitle: 'Cocina & Pastelería',
-    logo: '/image/amara.png',
+    logo: amoraLogo,
     description: (
       <>
         🍰 Café, Postres, Waffles, Cócteles y Malteadas.
@@ -131,9 +166,9 @@ const ALIADOS_DATA = [
         <small className="text-white-50">📍 Dirección: Carrera 11 #6-09</small>
       </>
     ),
-    ctaLink: 'https://www.instagram.com/amora.bake/', // Usamos IG como principal ya que no había WA específico
+    ctaLink: 'https://www.instagram.com/amora.bake/', 
     ctaText: '🍩 Ver Delicias',
-    images: ['/image/amora1.jpg', '/image/amora2.jpg', '/image/amora3.jpg'],
+    images: [amora1, amora2, amora3],
     social: {
       instagram: 'https://www.instagram.com/amora.bake/'
     }
@@ -142,7 +177,7 @@ const ALIADOS_DATA = [
     id: 'alma',
     title: 'Alma Coffee Bakery',
     subtitle: 'Café Bar & Pastelería',
-    logo: '/image/almalogo.jpg',
+    logo: almalogo,
     description: (
       <>
         ☕ <strong>Fabricamos experiencias.</strong>
@@ -156,10 +191,7 @@ const ALIADOS_DATA = [
     ),
     ctaLink: 'https://wa.me/573243314035?text=¡Hola! me gustaría hacer una reserva aliados Ruta Sonora',
     ctaText: '✨ ¡Vívela solo aquí!',
-    images: [
-      '/image/ALMA.jpg', '/image/alma1.jpg', '/image/alma2.jpg',
-      '/image/alma4.jpg', '/image/alma5.jpg', '/image/almap.jpg', '/image/almabe.jpg'
-    ],
+    images: [almaImg, alma1, alma2, alma4, alma5, almap, almabe],
     social: {
       whatsapp: 'https://wa.me/573222504227?text=¡Hola! Te contacto por medio de Navegante Sonoro',
       instagram: 'https://www.instagram.com/almacoffeebakery/'
@@ -169,7 +201,7 @@ const ALIADOS_DATA = [
     id: 'andreabo',
     title: 'Andrea Bo',
     subtitle: 'Pastelería Tradicional',
-    logo: '/image/logoandreabo.jpg',
+    logo: logoandreabo,
     description: (
       <>
         🥧 <strong>Experiencias de antaño:</strong>
@@ -181,7 +213,7 @@ const ALIADOS_DATA = [
     ),
     ctaLink: 'https://wa.me/573243314035?text=¡Hola! me gustaría hacer una reserva aliados Ruta Sonora',
     ctaText: '🥐 ¡Pídelas Aquí!',
-    images: ['/image/andree.jpg', '/image/andre1.jpg', '/image/andre2.jpg', '/image/andre3.jpg'],
+    images: [andree, andre1, andre2, andre3],
     social: {
       whatsapp: 'https://wa.me/573102462117?text=¡Hola! Te contacto por medio de Navegante Sonoro',
       instagram: 'https://www.instagram.com/andreabopasteleria/',
@@ -200,17 +232,17 @@ const SocialLinks = ({ social }) => (
     <div className="d-flex justify-content-center gap-4">
       {social.whatsapp && (
         <a href={social.whatsapp} target="_blank" rel="noopener noreferrer" className="opacity-75 hover-opacity-100">
-          <img src="/image/whastapp.svg" alt="WhatsApp" width={32} height={32} />
+          <img src={whatsappIcon} alt="WhatsApp" width={32} height={32} />
         </a>
       )}
       {social.instagram && (
         <a href={social.instagram} target="_blank" rel="noopener noreferrer" className="opacity-75 hover-opacity-100">
-          <img src="/image/instagram.png" alt="Instagram" width={32} height={32} />
+          <img src={instagramIcon} alt="Instagram" width={32} height={32} />
         </a>
       )}
       {social.facebook && (
         <a href={social.facebook} target="_blank" rel="noopener noreferrer" className="opacity-75 hover-opacity-100">
-          <img src="/image/facebook.png" alt="Facebook" width={32} height={32} />
+          <img src={facebookIcon} alt="Facebook" width={32} height={32} />
         </a>
       )}
     </div>
@@ -218,7 +250,7 @@ const SocialLinks = ({ social }) => (
 );
 
 const ImageCarousel = ({ id, images }) => {
-  if (!images || images.length === 0) return null; // Si no hay imágenes, no renderizamos nada
+  if (!images || images.length === 0) return null;
 
   const carouselId = `carousel-${id}`;
 

@@ -1,11 +1,21 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+// Importaciones de imágenes desde assets/image
+import zipahostel from '../assets/image/zipahostel.jpg';
+import alma from '../assets/image/ALMA.jpg';
+import alma1 from '../assets/image/alma1.jpg';
+import alma2 from '../assets/image/alma2.jpg';
+import alma4 from '../assets/image/alma4.jpg';
+import alma5 from '../assets/image/alma5.jpg';
+import whatsappIcon from '../assets/image/whastapp.svg';
+import instagramIcon from '../assets/image/instagram.png';
+
 const Capitulo1 = () => {
   return (
     <div className="d-flex flex-column align-items-center vh-100">
       <h1 className="text-center mt-5 text-uppercase fw-bold">Zipa Hostel</h1>
-      <img src="/image/zipahostel.jpg" alt="Zipa Hostel" className="mt-3 mb-3 rounded" style={{ width: '80%', maxHeight: '300px', objectFit: 'cover' }} />
+      <img src={zipahostel} alt="Zipa Hostel" className="mt-3 mb-3 rounded" style={{ width: '80%', maxHeight: '300px', objectFit: 'cover' }} />
       <p className="text-justify px-4" style={{ textAlign: 'justify' }}>
         Ubicado en Zipaquirá Cundinamarca, a 40 km de Centro Comercial Unicentro, y ofrece mostrador de información turística, habitaciones libres de humo, jardín, wifi gratis en todo el alojamiento y salón de uso común. El alojamiento está a unos 46 km de Estadio El Campín, a 11 km de Parque Jaime Duque y a 32 km de Parque Deportivo 222. El alojamiento dispone de cocina compartida y recepción 24 horas.
         Todas las unidades de este alojamiento están equipadas con TV con canales por cable. En el hostal o pensión, todas las habitaciones disponen de ropa de cama y toallas.
@@ -29,7 +39,7 @@ const Capitulo1 = () => {
           {/* Slide 1 */}
           <div className="carousel-item active">
             <img 
-              src="/image/ALMA.jpg" 
+              src={alma} 
               alt="Imagen 1" 
               className="d-block w-100 img-fluid rounded" 
             />
@@ -38,7 +48,7 @@ const Capitulo1 = () => {
           {/* Slide 2 */}
           <div className="carousel-item">
             <img 
-              src="/image/alma1.jpg" 
+              src={alma1} 
               alt="Imagen 2" 
               className="d-block w-100 img-fluid rounded" 
             />
@@ -47,7 +57,7 @@ const Capitulo1 = () => {
           {/* Slide 3 */}
           <div className="carousel-item">
             <img 
-              src="/image/alma2.jpg" 
+              src={alma2} 
               alt="Imagen 3" 
               className="d-block w-100 img-fluid rounded" 
             />
@@ -56,7 +66,7 @@ const Capitulo1 = () => {
           {/* Slide 4 */}
           <div className="carousel-item">
             <img 
-              src="/image/alma4.jpg" 
+              src={alma4} 
               alt="Imagen 4" 
               className="d-block w-100 img-fluid rounded" 
             />
@@ -65,7 +75,7 @@ const Capitulo1 = () => {
           {/* Slide 5 */}
           <div className="carousel-item">
             <img 
-              src="/image/alma5.jpg" 
+              src={alma5} 
               alt="Imagen 5" 
               className="d-block w-100 img-fluid rounded" 
             />
@@ -89,10 +99,10 @@ const Capitulo1 = () => {
 
       <div className="d-flex justify-content-center align-items-center mt-1 gap-3">
         <a href="https://wa.me/573226405203" target="_blank" rel="noopener noreferrer">
-          <img src="/image/whastapp.svg" alt="WhatsApp" width={40} height={40} />
+          <img src={whatsappIcon} alt="WhatsApp" width={40} height={40} />
         </a>
         <a href="https://www.instagram.com/zipahostel/" target="_blank" rel="noopener noreferrer">
-          <img src="/image/instagram.png" alt="Instagram" width={40} height={40} />
+          <img src={instagramIcon} alt="Instagram" width={40} height={40} />
         </a>
       </div>
     </div>

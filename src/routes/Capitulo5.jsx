@@ -4,6 +4,33 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { Link } from 'react-router-dom';
 
+// IMPORTACIÓN DE LOGOS
+import logoSalario from '../assets/image/logosalario.jpg';
+import logoArte from '../assets/image/logoarte.jpg';
+
+// IMPORTACIÓN DE IMÁGENES - SALARIO
+import salarioImg from '../assets/image/salario.jpg';
+import salario1 from '../assets/image/salario1.jpg';
+import salario3 from '../assets/image/salario3.jpg';
+import salario4 from '../assets/image/salario4.jpg';
+import salario5 from '../assets/image/salario5.jpg';
+import salario6 from '../assets/image/salario6.jpg';
+import salario7 from '../assets/image/salario7.jpg';
+import salario8 from '../assets/image/salario8.jpg';
+import salario9 from '../assets/image/salario9.jpg';
+
+// IMPORTACIÓN DE IMÁGENES - ARTENSAL
+import arteImg from '../assets/image/arte.jpg';
+import arte1 from '../assets/image/arte1.jpg';
+import arte3 from '../assets/image/arte3.jpg';
+import arte4 from '../assets/image/arte4.jpg';
+import arte5 from '../assets/image/arte5.jpg';
+
+// Iconos Sociales
+import whatsappIcon from '../assets/image/whastapp.svg';
+import instagramIcon from '../assets/image/instagram.png';
+import facebookIcon from '../assets/image/facebook.png';
+
 /* -------------------------------------------------------------------------- */
 /* ESTILOS INLINE (UX TIPO APP)                                               */
 /* -------------------------------------------------------------------------- */
@@ -65,7 +92,7 @@ const ALIADOS_DATA = [
     id: 'salario',
     title: 'Salario Restaurante',
     subtitle: 'Gastronomía & Bar',
-    logo: '/image/logosalario.jpg',
+    logo: logoSalario,
     description: (
       <>
         <p className="mb-3">
@@ -87,9 +114,9 @@ const ALIADOS_DATA = [
     ctaLink: 'https://wa.me/573243314035?text=¡Hola! me gustaría pedir el Plato especial con Ruta Sonora',
     ctaText: '🥩 Reservar Mesa',
     images: [
-      '/image/salario.jpg', '/image/salario1.jpg', '/image/salario3.jpg',
-      '/image/salario4.jpg', '/image/salario5.jpg', '/image/salario6.jpg',
-      '/image/salario7.jpg', '/image/salario8.jpg', '/image/salario9.jpg'
+      salarioImg, salario1, salario3,
+      salario4, salario5, salario6,
+      salario7, salario8, salario9
     ],
     social: {
       whatsapp: 'https://wa.me/573125739939?text=¡Hola! Te contacto por medio de Navegante Sonoro',
@@ -101,7 +128,7 @@ const ALIADOS_DATA = [
     id: 'artensal',
     title: 'Artensal Zipaquirá',
     subtitle: 'Arte, Sal & Experiencias',
-    logo: '/image/logoarte.jpg',
+    logo: logoArte,
     description: (
       <>
         {/* Caja de Descuento */}
@@ -124,13 +151,11 @@ const ALIADOS_DATA = [
         </ul>
       </>
     ),
-    // Nota: Mantenemos el link de reserva central, aunque el texto predefinido diga "Plato especial", 
-    // el usuario lo cambiará en WhatsApp, pero etiquetamos el botón correctamente.
     ctaLink: 'https://wa.me/573243314035?text=¡Hola! me gustaría pedir el Plato especial con Ruta Sonora', 
     ctaText: '✨ Reservar Experiencia',
     images: [
-      '/image/arte.jpg', '/image/arte1.jpg', '/image/arte3.jpg',
-      '/image/arte4.jpg', '/image/arte5.jpg'
+      arteImg, arte1, arte3,
+      arte4, arte5
     ],
     social: {
       whatsapp: 'https://wa.me/573502676768?text=¡Hola! Te contacto por medio de Navegante Sonoro',
@@ -150,17 +175,17 @@ const SocialLinks = ({ social }) => (
     <div className="d-flex justify-content-center gap-4">
       {social.whatsapp && (
         <a href={social.whatsapp} target="_blank" rel="noopener noreferrer" className="opacity-75 hover-opacity-100">
-          <img src="/image/whastapp.svg" alt="WhatsApp" width={32} height={32} />
+          <img src={whatsappIcon} alt="WhatsApp" width={32} height={32} />
         </a>
       )}
       {social.instagram && (
         <a href={social.instagram} target="_blank" rel="noopener noreferrer" className="opacity-75 hover-opacity-100">
-          <img src="/image/instagram.png" alt="Instagram" width={32} height={32} />
+          <img src={instagramIcon} alt="Instagram" width={32} height={32} />
         </a>
       )}
       {social.facebook && (
         <a href={social.facebook} target="_blank" rel="noopener noreferrer" className="opacity-75 hover-opacity-100">
-          <img src="/image/facebook.png" alt="Facebook" width={32} height={32} />
+          <img src={facebookIcon} alt="Facebook" width={32} height={32} />
         </a>
       )}
     </div>

@@ -10,7 +10,7 @@ function RutaCatedral() {
       document.getElementById("spinner").style.display = "block";
       const mindarThree = new window.MINDAR.IMAGE.MindARThree({
         container: document.querySelector("#ar-conteiner"),
-        imageTargetSrc: '/image/capitulo6.mind',
+        imageTargetSrc: '/images/capitulo6.mind',
       });
 
       const { renderer, cssRenderer, scene, cssScene, camera } = mindarThree;

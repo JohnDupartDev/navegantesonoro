@@ -1,5 +1,7 @@
 import Slider from './slider'
 import { Link } from "react-router-dom"
+import logoNavegante from "../assets/image/logonavegante.svg";
+
 
 import { FaSignInAlt,FaBookReader, FaCommentDollar, FaUsers, FaMapMarkedAlt} from 'react-icons/fa';
 
@@ -14,7 +16,9 @@ export default function index() {
           <div className="contenar">
            
             <a className="logo" href='https://navegantesonoro.com/'>
-          <img className='imglogo' src='/image/LOGONS.svg' alt='logo_zipaquiardigital' rel="noopener noreferrer"/>
+          <img className='imglogo'            
+              src={logoNavegante}
+         alt='logo_zipaquiardigital' rel="noopener noreferrer"/>
           </a>
         
               <p className="textline">Una experiencia única 

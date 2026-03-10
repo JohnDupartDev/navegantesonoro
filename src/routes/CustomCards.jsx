@@ -1,7 +1,18 @@
 import 'bootstrap/dist/css/bootstrap.min.css'; // Asegúrate de importar Bootstrap
 import { Link } from 'react-router-dom';
 
+// IMPORTACIÓN DE IMÁGENES DE FONDO (Desde la carpeta assets para que Vite las procese)
+import estacionImg from '../assets/image/estacion.jpg';
+import casanavasImg from '../assets/image/casanavas.jpg';
+import plazaImg from '../assets/image/plaza.jpg';
+import independenciaImg from '../assets/image/independencia.jpg';
+import funzipaImg from '../assets/image/funzipa.jpg';
+import catedralImg from '../assets/image/catedral.jpg';
+
 const CustomCards = () => {
+  // Definimos la ruta del icono usando la carpeta public directamente para evitar errores de importación
+  const calendarIconPath = "/image/calendar.png";
+
   return (
     <div className="container px-1 " id="custom-cards">
       <h2 className="h2 text-start pb-2 ">Ruta Sonora</h2>
@@ -12,7 +23,7 @@ const CustomCards = () => {
           <div
             className="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
             style={{
-              backgroundImage: "url('/image/estacion.jpg')",
+              backgroundImage: `url(${estacionImg})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
@@ -34,17 +45,14 @@ const CustomCards = () => {
               <h3 className="pt-5  mb-4 display-6 lh-1 fw-bold ">Estación del tren Tres Esquinas</h3>
               <ul className="d-flex list-unstyled mt-auto align-items-center">
                 <li className="me-auto">
-                <a href="https://navegantesonoro.com/Capitulo1" className="btn btn-warning d-flex align-items-center text-white" rel="noopener noreferrer">
-  Ver Aliados
-</a>
+                  <a href="https://navegantesonoro.com/Capitulo1" className="btn btn-warning d-flex align-items-center text-white" rel="noopener noreferrer">
+                    Ver Aliados
+                  </a>
                 </li>
                 <li className="d-flex align-items-center mb-3 text-warning">
-                  <small>Capítulo</small>
+                  <small>Capítulo 1</small>
                 </li>
-                <li className="d-flex align-items-center mb-3 text-warning">
-                  <img src="/image/calendar.png" alt="Calendario" className="me-2" width="1em" height="1em" />
-                  <small>1</small>
-                </li>
+                
               </ul>
             </div>
           </div>
@@ -55,7 +63,7 @@ const CustomCards = () => {
           <div
             className="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
             style={{
-              backgroundImage: "url('/image/casanavas.jpg')",
+              backgroundImage: `url(${casanavasImg})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
@@ -77,17 +85,14 @@ const CustomCards = () => {
               <h3 className="pt-5  mb-4 display-6 lh-1 fw-bold">Casa de las Navas</h3>
               <ul className="d-flex list-unstyled mt-auto align-items-center">
                 <li className="me-auto">
-                <a href="https://navegantesonoro.com/Capitulo2" className="btn btn-warning d-flex align-items-center text-white">
-                         Ver Aliados
+                  <a href="https://navegantesonoro.com/Capitulo2" className="btn btn-warning d-flex align-items-center text-white">
+                    Ver Aliados
                   </a>
                 </li>
                 <li className="d-flex align-items-center mb-3 text-warning">
-                  <small>Capítulo</small>
+                  <small>Capítulo 2</small>
                 </li>
-                <li className="d-flex align-items-center mb-3 text-warning">
-                  <img src="/image/calendar.png" alt="Calendario" className="me-2" width="1em" height="1em" />
-                  <small>2</small>
-                </li>
+               
               </ul>
             </div>
           </div>
@@ -98,7 +103,7 @@ const CustomCards = () => {
           <div
             className="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
             style={{
-              backgroundImage: "url('/image/plaza.jpg')",
+              backgroundImage: `url(${plazaImg})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
@@ -120,17 +125,14 @@ const CustomCards = () => {
               <h3 className="pt-5  mb-4 display-6 lh-1 fw-bold">Plaza Principal o Plaza de los Comuneros</h3>
               <ul className="d-flex list-unstyled mt-auto align-items-center">
                 <li className="me-auto">
-                <a href="https://navegantesonoro.com/Capitulo3" className="btn btn-warning d-flex align-items-center text-white">
-                         Ver Aliados
+                  <a href="https://navegantesonoro.com/Capitulo3" className="btn btn-warning d-flex align-items-center text-white">
+                    Ver Aliados
                   </a>
                 </li>
                 <li className="d-flex align-items-center mb-3 text-warning">
-                  <small>Capítulo</small>
+                  <small>Capítulo 3</small>
                 </li>
-                <li className="d-flex align-items-center mb-3 text-warning">
-                  <img src="/image/calendar.png" alt="Calendario" className="me-2" width="1em" height="1em" />
-                  <small>3</small>
-                </li>
+                
               </ul>
             </div>
           </div>
@@ -141,7 +143,7 @@ const CustomCards = () => {
           <div
             className="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
             style={{
-              backgroundImage: "url('/image/independencia.jpg')",
+              backgroundImage: `url(${independenciaImg})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
@@ -163,17 +165,14 @@ const CustomCards = () => {
               <h3 className="pt-5  mb-4 display-6 lh-1 fw-bold">Plaza de la Independencia e Iglesia de Nuestra Señora de los Dolores</h3>
               <ul className="d-flex list-unstyled mt-auto align-items-center">
                 <li className="me-auto">
-                <a href="https://navegantesonoro.com/Capitulo4" className="btn btn-warning d-flex align-items-center text-white">
-                         Ver Aliados
+                  <a href="https://navegantesonoro.com/Capitulo4" className="btn btn-warning d-flex align-items-center text-white">
+                    Ver Aliados
                   </a>
                 </li>
                 <li className="d-flex align-items-center mb-3 text-warning">
-                  <small>Capítulo</small>
+                  <small>Capítulo 4</small>
                 </li>
-                <li className="d-flex align-items-center mb-3 text-warning">
-                  <img src="/image/calendar.png" alt="Calendario" className="me-2" width="1em" height="1em" />
-                  <small>4</small>
-                </li>
+                
               </ul>
             </div>
           </div>
@@ -184,7 +183,7 @@ const CustomCards = () => {
           <div
             className="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
             style={{
-              backgroundImage: "url('/image/funzipa.jpg')",
+              backgroundImage: `url(${funzipaImg})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
@@ -206,17 +205,14 @@ const CustomCards = () => {
               <h3 className="pt-5  mb-4 display-6 lh-1 fw-bold">Antiguo Horno de Sal</h3>
               <ul className="d-flex list-unstyled mt-auto align-items-center">
                 <li className="me-auto">
-                <a href="https://navegantesonoro.com/Capitulo5" className="btn btn-warning d-flex align-items-center text-white">
-                         Ver Aliados
+                  <a href="https://navegantesonoro.com/Capitulo5" className="btn btn-warning d-flex align-items-center text-white">
+                    Ver Aliados
                   </a>
                 </li>
                 <li className="d-flex align-items-center mb-3 text-warning">
-                  <small>Capítulo</small>
+                  <small>Capítulo 5</small>
                 </li>
-                <li className="d-flex align-items-center mb-3 text-warning">
-                  <img src="/image/calendar.png" alt="Calendario" className="me-2" width="1em" height="1em" />
-                  <small>5</small>
-                </li>
+               
               </ul>
             </div>
           </div>
@@ -227,7 +223,7 @@ const CustomCards = () => {
           <div
             className="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
             style={{
-              backgroundImage: "url('/image/catedral.jpg')",
+              backgroundImage: `url(${catedralImg})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
@@ -249,32 +245,27 @@ const CustomCards = () => {
               <h3 className="pt-5  mb-4 display-6 lh-1 fw-bold">Parque de la Sal - Catedral de Sal</h3>
               <ul className="d-flex list-unstyled mt-auto align-items-center">
                 <li className="me-auto">
-                <a href="https://navegantesonoro.com/Capitulo6" className="btn btn-warning d-flex align-items-center text-white">
-                         Ver Aliados
+                  <a href="https://navegantesonoro.com/Capitulo6" className="btn btn-warning d-flex align-items-center text-white">
+                    Ver Aliados
                   </a>
                 </li>
                 <li className="d-flex align-items-center mb-3 text-warning">
-                  <small>Capítulo</small>
+                  <small>Capítulo 6 </small>
                 </li>
-                <li className="d-flex align-items-center mb-3 text-warning">
-                  <img src="/image/calendar.png" alt="Calendario" className="me-2" width="1em" height="1em" />
-                  <small>6</small>
-                </li>
+                
               </ul>
             </div>
           </div>
-          
         </div>
       </div>
+
       <section className="historia-section">
-          <div className="historia-button-container">
-            <Link to="/" className="historia-home-button">
-              Volver
-            </Link>
-          </div>
-        </section>
-
-
+        <div className="historia-button-container">
+          <Link to="/" className="historia-home-button">
+            Volver
+          </Link>
+        </div>
+      </section>
     </div>
   );
 };

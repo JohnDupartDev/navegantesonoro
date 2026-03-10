@@ -16,64 +16,70 @@ function RutaEstacion() {
       const { renderer, cssRenderer, scene, cssScene, camera } = mindarThree;
 
       const loadAndShowVideo = async (videoUrl) => {
-        const video = await loadVideo(videoUrl);
-        const texture = new THREE.VideoTexture(video);
-        const geometry = new THREE.PlaneGeometry(1, 1204 / 1980);
-        const material = new THREE.MeshBasicMaterial({ map: texture });
-        material.map.minFilter = THREE.LinearFilter;
+        try {
+          const video = await loadVideo(videoUrl);
+          const texture = new THREE.VideoTexture(video);
+          const geometry = new THREE.PlaneGeometry(1, 1204 / 1980);
+          const material = new THREE.MeshBasicMaterial({ map: texture });
+          material.map.minFilter = THREE.LinearFilter;
 
-        const plane = new THREE.Mesh(geometry, material);
-        plane.geometry.scale(1, 1, 1);
+          const plane = new THREE.Mesh(geometry, material);
+          plane.geometry.scale(1, 1, 1);
 
-        const plane1 = new THREE.Mesh(geometry, material);
-        plane.geometry.scale(1, 1, 1);
+          const plane1 = new THREE.Mesh(geometry, material);
+          plane1.geometry.scale(1, 1, 1); // Corregido: antes escalabas 'plane'
 
-        const plane2 = new THREE.Mesh(geometry, material);
-        plane.geometry.scale(1, 1, 1);
+          const plane2 = new THREE.Mesh(geometry, material);
+          plane2.geometry.scale(1, 1, 1); // Corregido: antes escalabas 'plane'
 
 
-        const anchore = mindarThree.addAnchor(0);  // Corregido
-        anchore.group.add(plane);
-        
-        const anchor = mindarThree.addAnchor(1);  // Corregido
-        anchor.group.add(plane1);
+          const anchore = mindarThree.addAnchor(0);  
+          anchore.group.add(plane);
+          
+          const anchor = mindarThree.addAnchor(1);  
+          anchor.group.add(plane1);
 
-        const anchores = mindarThree.addAnchor(2);  // Corregido
-        anchores.group.add(plane2);
+          const anchores = mindarThree.addAnchor(2);  
+          anchores.group.add(plane2);
 
-        anchor.onTargetFound = () => {
-          video.play();
-        };
-        anchor.onTargetLost = () => {
-          // Aquí puedes agregar lógica si lo necesitas
-        };
+          anchor.onTargetFound = () => {
+            video.play().catch(e => console.error("Error al reproducir:", e));
+          };
+          anchor.onTargetLost = () => {
+            // Aquí puedes agregar lógica si lo necesitas
+          };
 
-        anchore.onTargetFound = () => {
-          video.play();
-        };
-        anchore.onTargetLost = () => {
-          // Aquí puedes agregar lógica si lo necesitas
-        };
+          anchore.onTargetFound = () => {
+            video.play().catch(e => console.error("Error al reproducir:", e));
+          };
+          anchore.onTargetLost = () => {
+            // Aquí puedes agregar lógica si lo necesitas
+          };
 
-        anchores.onTargetFound = () => {
-          video.play();
-        };
-        anchores.onTargetLost = () => {
-          // Aquí puedes agregar lógica si lo necesitas
-        };
+          anchores.onTargetFound = () => {
+            video.play().catch(e => console.error("Error al reproducir:", e));
+          };
+          anchores.onTargetLost = () => {
+            // Aquí puedes agregar lógica si lo necesitas
+          };
 
-        video.addEventListener('ended', () => {
-          video.currentTime = 0;
-          video.play();
-        });
+          video.addEventListener('ended', () => {
+            video.currentTime = 0;
+            video.play().catch(e => console.error("Error al re-iniciar:", e));
+          });
 
-        await mindarThree.start();
-        document.getElementById("spinner").style.display = "none";
+          await mindarThree.start();
+          document.getElementById("spinner").style.display = "none";
 
-        renderer.setAnimationLoop(() => {
-          renderer.render(scene, camera);
-          cssRenderer.render(cssScene, camera);
-        });
+          renderer.setAnimationLoop(() => {
+            renderer.render(scene, camera);
+            cssRenderer.render(cssScene, camera);
+          });
+        } catch (error) {
+          console.error("Error detallado cargando el video:", error);
+          alert("No se pudo cargar el video. Verifica que el archivo existe en /public/videos/capitulo1ns.mp4");
+          document.getElementById("spinner").style.display = "none";
+        }
       };
 
       const createVideoSelectionButtons = () => {
@@ -108,7 +114,8 @@ function RutaEstacion() {
         document.querySelector("#starts").style.display = "flex";
         document.querySelector("#volver").style.display = "none";
         document.querySelector("#ardiv").style.display = "none";
-        document.querySelector(".ButtonCla").style.display = "none";
+        const btn = document.querySelector(".ButtonCla");
+        if(btn) btn.style.display = "none";
       };
 
       // Crear y añadir el contenido HTML en 3D
@@ -142,18 +149,18 @@ function RutaEstacion() {
         </div>
         
       `;
-      const ico = htmlContent.querySelector('.ico');
-      const cssObject = new CSS3DObject(htmlContent);
+      
+      const cssObject = new CSS3DObject(htmlContent.cloneNode(true));
       cssObject.position.set(0, -466, 0);
-      cssObject.scale.set(2, 2, 2); // Ajusta la posición debajo del video
+      cssObject.scale.set(2, 2, 2); 
      
-      const cssObject1 = new CSS3DObject(htmlContent);
+      const cssObject1 = new CSS3DObject(htmlContent.cloneNode(true));
       cssObject1.position.set(0, -466, 0);
-      cssObject1.scale.set(2, 2, 2); // Ajusta la
+      cssObject1.scale.set(2, 2, 2); 
 
-      const cssObject2 = new CSS3DObject(htmlContent);
+      const cssObject2 = new CSS3DObject(htmlContent.cloneNode(true));
       cssObject2.position.set(0, -466, 0);
-      cssObject2.scale.set(2, 2, 2); // Ajusta la
+      cssObject2.scale.set(2, 2, 2); 
 
      
       const cssAnchore = mindarThree.addCSSAnchor(0);
@@ -163,15 +170,15 @@ function RutaEstacion() {
       cssAnchor.group.add(cssObject1);
       cssAnchores.group.add(cssObject2);
 
-      createVideoSelectionButtons(); // Llamar función para crear los botones de selección de video al iniciar
+      createVideoSelectionButtons(); 
 
     };
 
-    start(); // Llamar función principal para iniciar la configuración inicial
+    start(); 
 
   }, []);
 
-  return null; // No renderizamos nada directamente en este componente
+  return null; 
 }
 
 export default RutaEstacion;

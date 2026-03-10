@@ -10,7 +10,7 @@ function RutaFunzipa() {
       document.getElementById("spinner").style.display = "block";
       const mindarThree = new window.MINDAR.IMAGE.MindARThree({
         container: document.querySelector("#ar-conteiner"),
-        imageTargetSrc: '/image/capitulo5.mind',
+        imageTargetSrc: '/images/capitulo5.mind',
       });
 
       const { renderer, cssRenderer, scene, cssScene, camera } = mindarThree;

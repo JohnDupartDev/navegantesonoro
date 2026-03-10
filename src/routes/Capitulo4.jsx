@@ -4,6 +4,60 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { Link } from 'react-router-dom';
 
+// IMPORTACIÓN DE LOGOS DE ALIADOS
+import logoCasaChorro from '../assets/image/LogoCasadelChorro.jpg';
+import logoFrancachela from '../assets/image/logofrancachela.jpg';
+import logoCacique from '../assets/image/logocacique.jpg';
+import logoCamino from '../assets/image/logocamino.jpg';
+
+// IMPORTACIÓN DE IMÁGENES DE GALERÍA
+// Casa del Chorro
+import menuChorro from '../assets/image/menucasadelchorro.jpg';
+
+// Francachela
+import franca from '../assets/image/franca.jpg';
+import franca1 from '../assets/image/franca1.jpg';
+import franca2 from '../assets/image/franca2.jpg';
+import franca3 from '../assets/image/franca3.jpg';
+import franca4 from '../assets/image/franca4.jpg';
+import franca5 from '../assets/image/franca5.jpg';
+import franca6 from '../assets/image/franca6.jpg';
+import franca7 from '../assets/image/franca7.jpg';
+import franca8 from '../assets/image/franca8.jpg';
+
+// Cacique Real
+import caci from '../assets/image/caci.jpg';
+import caci1 from '../assets/image/caci1.jpg';
+import caci2 from '../assets/image/caci2.jpg';
+import caci3 from '../assets/image/caci3.jpg';
+import caci4 from '../assets/image/caci4.jpg';
+import caci5 from '../assets/image/caci5.jpg';
+import caci6 from '../assets/image/caci6.jpg';
+import casi7 from '../assets/image/casi7.jpg'; // Respetando nombre del archivo original
+import caci8 from '../assets/image/caci8.jpg';
+import caci9 from '../assets/image/caci9.jpg';
+
+// Camino de la Sal
+import hsal from '../assets/image/hsal.jpg';
+import hsal1 from '../assets/image/hsal1.jpg';
+import hsal2 from '../assets/image/hsal2.jpg';
+import hsal3 from '../assets/image/hsal3.jpg';
+import hsal4 from '../assets/image/hsal4.jpg';
+import hsal5 from '../assets/image/hsal5.jpg';
+import hsal6 from '../assets/image/hsal6.jpg';
+import hsal7 from '../assets/image/hsal7.jpg';
+import hsal8 from '../assets/image/hsal8.jpg';
+import hsal9 from '../assets/image/hsal9.jpg';
+import hsal10 from '../assets/image/hsal10.jpg';
+import hsal11 from '../assets/image/hsal11.jpg';
+import hsal12 from '../assets/image/hsal12.jpg';
+import hsal13 from '../assets/image/hsal13.jpg';
+
+// Iconos Sociales
+import whatsappIcon from '../assets/image/whastapp.svg';
+import instagramIcon from '../assets/image/instagram.png';
+import facebookIcon from '../assets/image/facebook.png';
+
 /* -------------------------------------------------------------------------- */
 /* ESTILOS INLINE PARA UX TIPO APP (Glassmorphism & Mobile)                   */
 /* -------------------------------------------------------------------------- */
@@ -49,7 +103,7 @@ const ALIADOS_DATA = [
     id: 'casadelchorro',
     title: 'Casa del Chorro',
     subtitle: 'Restaurante',
-    logo: '/image/LogoCasadelChorro.jpg',
+    logo: logoCasaChorro,
     description: (
       <>
         <strong className='text-warning d-block mb-2'>✨ Platos especiales Ruta Sonora</strong>
@@ -62,7 +116,7 @@ const ALIADOS_DATA = [
     ),
     ctaLink: 'https://wa.me/573243314035?text=¡Hola! me gustaría pedir el Plato especial con Ruta Sonora',
     ctaText: '🍽️ ¡Pedir Aquí!',
-    images: ['/image/menucasadelchorro.jpg'],
+    images: [menuChorro],
     social: {
       whatsapp: 'https://wa.me/573209568055?text=¡Hola! Te contacto por medio de Navegante Sonoro',
       instagram: 'https://www.instagram.com/casadelchorro/',
@@ -73,7 +127,7 @@ const ALIADOS_DATA = [
     id: 'francachela',
     title: 'Habrá Francachela',
     subtitle: 'Café de Especialidad',
-    logo: '/image/logofrancachela.jpg',
+    logo: logoFrancachela,
     description: (
       <>
         ☕ Café de especialidad, postres hechos con amor y comidas artesanales.
@@ -85,9 +139,9 @@ const ALIADOS_DATA = [
     ctaLink: 'https://wa.me/573243314035?text=¡Hola! me gustaría pedir el Café especial con Ruta Sonora',
     ctaText: '☕ ¡Pedir Café!',
     images: [
-      '/image/franca.jpg', '/image/franca1.jpg', '/image/franca2.jpg', '/image/franca3.jpg',
-      '/image/franca4.jpg', '/image/franca5.jpg', '/image/franca6.jpg', '/image/franca7.jpg',
-      '/image/franca8.jpg'
+      franca, franca1, franca2, franca3,
+      franca4, franca5, franca6, franca7,
+      franca8
     ],
     social: {
       whatsapp: 'https://wa.me/573176417619?text=¡Hola! Te contacto por medio de Navegante Sonoro',
@@ -99,7 +153,7 @@ const ALIADOS_DATA = [
     id: 'caciquereal',
     title: 'Hotel Cacique Real',
     subtitle: 'Hospedaje Colonial',
-    logo: '/image/logocacique.jpg',
+    logo: logoCacique,
     description: (
       <>
         Disfruta de experiencias memorables en la Casona Colonial o en la Casona Contemporánea de nuestro hotel. 
@@ -110,9 +164,9 @@ const ALIADOS_DATA = [
     ctaLink: 'https://wa.me/573243314035?text=¡Hola! me gustaría hacer una reserva aliados Ruta Sonora',
     ctaText: '🏨 Reservar Ahora',
     images: [
-      '/image/caci.jpg', '/image/caci1.jpg', '/image/caci2.jpg', '/image/caci3.jpg',
-      '/image/caci4.jpg', '/image/caci5.jpg', '/image/caci6.jpg', '/image/casi7.jpg',
-      '/image/caci8.jpg', '/image/caci9.jpg'
+      caci, caci1, caci2, caci3,
+      caci4, caci5, caci6, casi7,
+      caci8, caci9
     ],
     social: {
       whatsapp: 'https://wa.me/573115321251?text=¡Hola! Te contacto por medio de Navegante Sonoro',
@@ -124,7 +178,7 @@ const ALIADOS_DATA = [
     id: 'caminodelasal',
     title: 'Hotel Camino de la Sal',
     subtitle: 'Hospedaje Moderno',
-    logo: '/image/logocamino.jpg', // Nota: Verifica si esta imagen es correcta, en tu original estaba repetida o era diferente
+    logo: logoCamino,
     description: (
       <>
         Combinación elegante, fresca, moderna y agradable. Habitaciones que te transportarán a una Zipaquirá diferente.
@@ -135,10 +189,10 @@ const ALIADOS_DATA = [
     ctaLink: 'https://wa.me/573243314035?text=¡Hola! me gustaría hacer una reserva aliados Ruta Sonora',
     ctaText: '🛏️ Ver Disponibilidad',
     images: [
-      '/image/hsal.jpg', '/image/hsal1.jpg', '/image/hsal2.jpg', '/image/hsal3.jpg',
-      '/image/hsal4.jpg', '/image/hsal5.jpg', '/image/hsal6.jpg', '/image/hsal7.jpg',
-      '/image/hsal8.jpg', '/image/hsal9.jpg', '/image/hsal10.jpg', '/image/hsal11.jpg',
-      '/image/hsal12.jpg', '/image/hsal13.jpg'
+      hsal, hsal1, hsal2, hsal3,
+      hsal4, hsal5, hsal6, hsal7,
+      hsal8, hsal9, hsal10, hsal11,
+      hsal12, hsal13
     ],
     social: {
       whatsapp: 'https://wa.me/573013702227?text=¡Hola! Te contacto por medio de Navegante Sonoro',
@@ -158,17 +212,17 @@ const SocialLinks = ({ social }) => (
     <div className="d-flex justify-content-center gap-4">
       {social.whatsapp && (
         <a href={social.whatsapp} target="_blank" rel="noopener noreferrer" className="opacity-75 hover-opacity-100 transition">
-          <img src="/image/whastapp.svg" alt="WhatsApp" width={32} height={32} />
+          <img src={whatsappIcon} alt="WhatsApp" width={32} height={32} />
         </a>
       )}
       {social.instagram && (
         <a href={social.instagram} target="_blank" rel="noopener noreferrer" className="opacity-75 hover-opacity-100 transition">
-          <img src="/image/instagram.png" alt="Instagram" width={32} height={32} />
+          <img src={instagramIcon} alt="Instagram" width={32} height={32} />
         </a>
       )}
       {social.facebook && (
         <a href={social.facebook} target="_blank" rel="noopener noreferrer" className="opacity-75 hover-opacity-100 transition">
-          <img src="/image/facebook.png" alt="Facebook" width={32} height={32} />
+          <img src={facebookIcon} alt="Facebook" width={32} height={32} />
         </a>
       )}
     </div>
@@ -187,13 +241,12 @@ const ImageCarousel = ({ id, images }) => {
               src={imgSrc} 
               alt={`Slide ${index}`} 
               className="d-block w-100" 
-              style={styles.galleryImage} // Altura fija y cover para uniformidad
+              style={styles.galleryImage} 
             />
           </div>
         ))}
       </div>
       
-      {/* Controles simplificados para UX limpia */}
       {images.length > 1 && (
         <>
           <button className="carousel-control-prev" type="button" data-bs-target={`#${carouselId}`} data-bs-slide="prev">
@@ -214,23 +267,18 @@ const ImageCarousel = ({ id, images }) => {
 
 const Capitulo4 = () => {
   return (
-    // 'capitulo' mantiene tu background original
     <div className="capitulo min-vh-100 d-flex flex-column align-items-center">
       
-      {/* Contenedor centralizado para vista Móvil */}
       <div style={styles.appContainer} className="w-100 px-3">
         
-        {/* Header de la sección */}
         <div className="text-center py-4 mb-2">
           <span className="badge bg-warning text-dark mb-2">Ruta Sonora</span>
           <h1 className="text-uppercase fw-bold text-light h2 m-0">Aliados Capítulo 4</h1>
         </div>
 
-        {/* Lista de Aliados Renderizada Dinámicamente */}
         {ALIADOS_DATA.map((aliado) => (
           <div key={aliado.id} style={styles.glassCard} className="fade-in-up">
             
-            {/* Cabecera del Aliado */}
             <div className="d-flex align-items-center mb-3">
               <img 
                 src={aliado.logo} 
@@ -244,15 +292,12 @@ const Capitulo4 = () => {
               </div>
             </div>
 
-            {/* Imagen Principal / Carrusel */}
             <ImageCarousel id={aliado.id} images={aliado.images} />
 
-            {/* Descripción */}
             <div className="text-light mb-4" style={{ textAlign: 'justify', lineHeight: '1.6' }}>
               {aliado.description}
             </div>
 
-            {/* CTA BUTTON (Mejora UX clave: Botón grande en vez de link de texto) */}
             <a
               href={aliado.ctaLink}
               target="_blank"
@@ -263,12 +308,10 @@ const Capitulo4 = () => {
               {aliado.ctaText}
             </a>
 
-            {/* Redes Sociales */}
             <SocialLinks social={aliado.social} />
           </div>
         ))}
 
-        {/* Botón Flotante de Volver (UX Móvil) */}
         <div className="fixed-bottom p-3 d-flex justify-content-center " >
            <div style={{ pointerEvents: 'auto' }}>
             <Link to="/aliados" className="btn btn-success rounded-pill px-4 py-2 shadow fw-bold d-flex align-items-center gap-2">
@@ -276,9 +319,6 @@ const Capitulo4 = () => {
             </Link>
            </div>
         </div>
-
-        {/* Mantenemos tu sección original por seguridad, pero oculta si usas el botón flotante */}
-        {/* <section className="historia-section">...</section> */}
         
       </div>
     </div>

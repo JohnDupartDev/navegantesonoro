@@ -1,14 +1,16 @@
-import {GLTFLoader} from "../../../node_modules/three/examples/jsm/loaders/GLTFLoader";
-
-
-//const THREE = window.MINDAR.IMAGE? window.MINDAR.IMAGE.THREE: window.MINDAR.FACE.THREE;
+// 1. Importación correcta desde la librería (Vite lo resuelve solo)
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 export const loadGLTF = (path) => {
   return new Promise((resolve, reject) => {
     const loader = new GLTFLoader();
-    loader.load(path, (gltf) => {
-      resolve(gltf);
-    });
+    loader.load(
+      path, 
+      (gltf) => resolve(gltf),
+      undefined,
+      (error) => reject(error) // Es buena práctica manejar el error
+    );
   });
 }
 
@@ -17,18 +19,18 @@ export const loadAudio = (path) => {
     const loader = new THREE.AudioLoader();
     loader.load(path, (buffer) => {
       resolve(buffer);
-    });
+    }, undefined, (err) => reject(err));
   });
 }
 
 export const loadVideo = (path) => {
   return new Promise((resolve, reject) => {
     const video = document.createElement("video");
-    //video.addEventListener('loadeddata', () => {
     video.addEventListener('loadedmetadata', () => {
       video.setAttribute('playsinline', '');
       resolve(video);
     });
+    video.onerror = (err) => reject(err);
     video.src = path;
   });
 }
@@ -38,19 +40,16 @@ export const loadTexture = (path) => {
     const loader = new THREE.TextureLoader();
     loader.load(path, (texture) => {
       resolve(texture);
-    }); 
+    }, undefined, (err) => reject(err)); 
   });
 }
 
 export const loadTextures = (paths) => {
   const loader = new THREE.TextureLoader();
-  const promises = [];
-  for (let i = 0; i < paths.length; i++) {
-    promises.push(new Promise((resolve, reject) => {
-      loader.load(paths[i], (texture) => {
-	resolve(texture);
-      }); 
-    }));
-  }
+  const promises = paths.map(path => {
+    return new Promise((resolve, reject) => {
+      loader.load(path, (texture) => resolve(texture), undefined, (err) => reject(err));
+    });
+  });
   return Promise.all(promises);
 }

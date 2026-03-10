@@ -4,6 +4,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { Link } from 'react-router-dom';
 
+// IMPORTACIÓN DE IMÁGENES
+import logodoce from '../assets/image/logodoce.jpg';
+import doce from '../assets/image/doce.jpg';
+import doce1 from '../assets/image/doce1.jpg';
+import doce2 from '../assets/image/doce2.jpg';
+import doce4 from '../assets/image/doce4.jpg';
+
+// Iconos Sociales
+import whatsappIcon from '../assets/image/whastapp.svg';
+import instagramIcon from '../assets/image/instagram.png';
+import facebookIcon from '../assets/image/facebook.png';
+
 /* -------------------------------------------------------------------------- */
 /* ESTILOS INLINE (UX TIPO APP)                                               */
 /* -------------------------------------------------------------------------- */
@@ -65,7 +77,7 @@ const ALIADOS_DATA = [
     id: 'docecafe',
     title: 'Doce Café',
     subtitle: 'Experiencias Sensoriales',
-    logo: '/image/logodoce.jpg',
+    logo: logodoce,
     description: (
       <>
         <p className="mb-4">
@@ -98,10 +110,10 @@ const ALIADOS_DATA = [
     ctaLink: 'https://wa.me/573243314035?text=¡Hola! Te contacto por medio de Navegante Sonoro y me gustaria reservar la experiencia',
     ctaText: '☕ Reservar Experiencia',
     images: [
-      '/image/doce.jpg', 
-      '/image/doce1.jpg', 
-      '/image/doce2.jpg', 
-      '/image/doce4.jpg'
+      doce, 
+      doce1, 
+      doce2, 
+      doce4
     ],
     social: {
       whatsapp: 'https://wa.me/573134450567?text=¡Hola! Te contacto por medio de Navegante Sonoro',
@@ -121,17 +133,17 @@ const SocialLinks = ({ social }) => (
     <div className="d-flex justify-content-center gap-4">
       {social.whatsapp && (
         <a href={social.whatsapp} target="_blank" rel="noopener noreferrer" className="opacity-75 hover-opacity-100">
-          <img src="/image/whastapp.svg" alt="WhatsApp" width={32} height={32} />
+          <img src={whatsappIcon} alt="WhatsApp" width={32} height={32} />
         </a>
       )}
       {social.instagram && (
         <a href={social.instagram} target="_blank" rel="noopener noreferrer" className="opacity-75 hover-opacity-100">
-          <img src="/image/instagram.png" alt="Instagram" width={32} height={32} />
+          <img src={instagramIcon} alt="Instagram" width={32} height={32} />
         </a>
       )}
       {social.facebook && (
         <a href={social.facebook} target="_blank" rel="noopener noreferrer" className="opacity-75 hover-opacity-100">
-          <img src="/image/facebook.png" alt="Facebook" width={32} height={32} />
+          <img src={facebookIcon} alt="Facebook" width={32} height={32} />
         </a>
       )}
     </div>
@@ -200,7 +212,7 @@ const Capitulo2 = () => {
         {/* Header */}
         <div className="text-center py-4 mb-2">
           <span className="badge bg-warning text-dark mb-2">Ruta Sonora</span>
-          <h1 className="text-uppercase fw-bold text-light h2 m-0">Aliados Capítulo 2</h1>
+          <h1 className="text-uppercase fw-bold text-light h2 m-0">Aliados Capítulo 3</h1>
         </div>
 
         {/* Renderizado de Aliados */}

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react';
 import { loadVideo } from "./loader";
 import { CSS3DObject } from 'three/examples/jsm/renderers/CSS3DRenderer.js';
@@ -10,7 +11,7 @@ function RutaPlaza() {
       document.getElementById("spinner").style.display = "block";
       const mindarThree = new window.MINDAR.IMAGE.MindARThree({
         container: document.querySelector("#ar-conteiner"),
-        imageTargetSrc: '/image/capitulo3.mind',
+        imageTargetSrc: '/images/capitulo3.mind',
       });
 
       const { renderer, cssRenderer, scene, cssScene, camera } = mindarThree;
