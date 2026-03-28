@@ -3,9 +3,11 @@ import { useNavigate } from 'react-router-dom'; // Usamos React Router para redi
 import { Link } from 'react-router-dom'; // Importa Link para navegación
 import Estacionesar from '../routes/Estacionesar';
 
-
-
 const MiCuenta = () => {
+  // 👉 DEFINIMOS LAS RUTAS ESTÁTICAS PARA PUBLIC
+  const path = "/images/";
+  const audioPath = "/audios/";
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,40 +33,40 @@ const MiCuenta = () => {
   // Datos de cada capítulo, incluyendo el archivo de audio
   const capitulos = [
     {
-      imagen: '/image/imgc1.jpg',
+      imagen: `${path}imgc1.jpg`,
       titulo: 'CAPÍTULO 1. ESTACIÓN DEL FERROCARRIL TRES ESQUINAS',
       descripcion: 'Luisa es obligada por su familia a viajar a Zipaquirá. A su llegada siente una atracción por un artista que vio en la Estación del Tren.',
-      audio: '/audios/Capitulo_1.mp3', // Ruta del archivo de audio
+      audio: `${audioPath}Capitulo_1.mp3`, // Ruta del archivo de audio
     },
     {
-      imagen: '/image/imgc2.jpg',
+      imagen: `${path}imgc2.jpg`,
       titulo: 'CAPÍTULO 2. CASA DE LAS NAVAS',
       descripcion: 'Antonio se dirige al encuentro con sus amigos artistas en el centro de Zipaquirá, y demuestra su tristeza por no haber podido hablar con la mujer de la Estación del Tren.',
-      audio: '/audios/Capitulo2.mp3', // Ruta del archivo de audio
+      audio: `${audioPath}Capitulo2.mp3`, // Ruta del archivo de audio
     },
     {
-      imagen: '/image/imgc3.jpg',
+      imagen: `${path}imgc3.jpg`,
       titulo: 'CAPÍTULO 3. PLAZA PRINCIPAL',
       descripcion: 'Llega el domingo y con él la Santa Misa y la retreta ambientada en la Plaza Principal. Antonio está listo para tocar con la Banda Municipal. Las sorpresas no se harán esperar.',
-      audio: '/audios/Capitulo3.mp3', // Ruta del archivo de audio
+      audio: `${audioPath}Capitulo3.mp3`, // Ruta del archivo de audio
     },
     {
-      imagen: '/image/imgc4.jpg',
+      imagen: `${path}imgc4.jpg`,
       titulo: 'CAPÍTULO 4. PLAZA DE LA INDEPENDENCIA E IGLESIA DE NUESTRA SEÑORA DE LOS DOLORES',
       descripcion: 'Todo está listo para el reencuentro entre Luisa y Antonio en el punto más alto del centro histórico de Zipaquirá.',
-      audio: '/audios/Capitulo4.mp3',
+      audio: `${audioPath}Capitulo4.mp3`,
     },
     {
-      imagen: '/image/imgc5.jpg',
+      imagen: `${path}imgc5.jpg`,
       titulo: 'CAPÍTULO 5. ANTIGUO HORNO TRADICIONAL DE SAL',
       descripcion: 'Luisa no puede escapar de los acontecimientos políticos y económicos que vive Zipaquirá. Tendrá que decidir entre sus dos amores.',
-      audio: '/audios/Capitulo5.mp3',
+      audio: `${audioPath}Capitulo5.mp3`,
     },
     {
-      imagen: '/image/imgc6.jpg',
+      imagen: `${path}imgc6.jpg`,
       titulo: 'CAPÍTULO 6. ALREDEDORES PARQUE DE LA SAL',
       descripcion: 'La verdad es revelada. Luisa y Antonio se enfrentan a sus mayores miedos.',
-      audio: '/audios/Capitulo6.mp3',
+      audio: `${audioPath}Capitulo6.mp3`,
     },
   ];
 
@@ -88,7 +90,7 @@ const MiCuenta = () => {
             </div>
             <div className="miCuenta-content">
               <h3 className="miCuenta-title">{capitulo.titulo}</h3>
-              <p className="miCuenta-description">{capitulo.descripcion}</p>
+              <p className="miCuenta-description">{capitulo.description}</p>
             </div>
           </div>
           {/* Reproductor de audio al final de la tarjeta */}

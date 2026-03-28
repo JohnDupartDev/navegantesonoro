@@ -4,7 +4,7 @@ const Comprar = () => {
   // Datos de cada capítulo
   const capitulos = [
     {
-      imagen: '/image/comprobante.jpg',
+      imagen: '/images/comprobante.jpg',
     
       descripcion: 'Luego de realizar el pago, envíanos tu comprobante de la transacción exitosa para tener acceso a tu cuenta de Navegante Sonoro.',
       enlace:'https://wa.me/573243314035?text=¡Hola! Envío mi comprobante de pago para acceder a la ruta sonora.',  // Enlace directo a WhatsApp con el número proporcionado
@@ -24,7 +24,7 @@ const Comprar = () => {
       {/* Imagen debajo del título */}
       <div className="image-container d-flex justify-content-center mb-2">
         <img 
-          src="/image/nedavi.jpg" 
+          src="/images/nedavi.jpg" 
           alt="Ruta Sonora" 
           className="img-fluid rounded" 
           style={{ maxWidth: '300px' }} 
@@ -43,7 +43,7 @@ const Comprar = () => {
           <p className="text-center text-white">Abre tu aplicación de Nequi y escanea este código</p>
           <div className="image-container d-flex justify-content-center align-items-center">
             <img 
-              src="/image/nequilaura.jpg" 
+              src="/images/nequilaura.jpg" 
               alt="QR Nequi" 
               className="img-fluid rounded mb-4" 
             />
@@ -53,7 +53,7 @@ const Comprar = () => {
           <p className="text-center text-white">Abre tu aplicación de Daviplata y escanea este código</p>
           <div className="image-container d-flex justify-content-center align-items-center">
             <img 
-              src="/image/daviplata.jpg" 
+              src="/images/daviplata.jpg" 
               alt="QR Daviplata" 
               className="img-fluid rounded" 
             />
@@ -70,7 +70,7 @@ const Comprar = () => {
               <a href={capitulo.enlace} target="_blank" rel="noopener noreferrer">
                 <img 
                   src={capitulo.imagen} 
-                  alt={`Imagen del ${capitulo.titulo}`} 
+                  alt={`Imagen del comprobante`} 
                   className="miCuenta-image" 
                 />
               </a>
@@ -79,11 +79,11 @@ const Comprar = () => {
               <p className="miCuenta-description">{capitulo.descripcion}</p>
 
               {/* Segundo enlace debajo de la descripción */}
-              <p className="text-center m-0">
+              <div className="text-center m-0">
                 <a href={capitulo.enlaceComprobante} target="_blank" rel="noopener noreferrer" className=" fs-6 btn btn-success">
                   Enviar Comprobante 
                 </a>
-              </p>
+              </div>
             </div>
           </div>
         </div>

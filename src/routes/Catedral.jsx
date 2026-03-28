@@ -3,14 +3,16 @@ import '../../src/index.css';
 import RutaCatedral from '../assets/component/RutaCatedral.jsx';
 
 function CasaNavas() {
+  // 👉 DEFINIMOS LA RUTA ESTÁTICA A PUBLIC/IMAGES
+  const path = "/images/";
+
   // Creamos un estado para la imagen activa en el slider.
   const [currentImage, setCurrentImage] = useState(0);
   
-  // Lista de imágenes que estarán en el slider
+  // Lista de imágenes que estarán en el slider (Actualizadas a /images/)
   const images = [
-    '/image/capitulo6_egan.jpg',
-    '/image/capitulo6_pila.jpg',
-   
+    `${path}capitulo6_egan.jpg`,
+    `${path}capitulo6_pila.jpg`,
   ];
 
   // Función para cambiar la imagen al siguiente
@@ -54,7 +56,7 @@ function CasaNavas() {
           id="volver"
         >
           <img
-            src="/image/back.svg" // Reemplaza con la ruta correcta a tu SVG
+            src={`${path}back.svg`} // Ruta actualizada a /images/
             alt="Icono"
             style={{ width: '12px', height: '12px', marginRight: '5px' }} // Ajusta el tamaño y espaciado
           />

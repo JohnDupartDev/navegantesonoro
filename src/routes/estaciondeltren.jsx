@@ -2,11 +2,12 @@ import { useState } from 'react'; // Importamos useState para manejar el estado 
 import RutaEstacion from '../assets/component/RutaEstacion.jsx';
 import '../../src/index.css';
 
-// 👉 IMPORTAR IMÁGENES DESDE ASSETS
-import capitulo1Ventana from '../assets/image/capitulo1_ventana.jpg';
-import backIcon from '../assets/image/back.svg';
-
 function EstacionDelTren() {
+  // 👉 DEFINIMOS LA RUTA ESTÁTICA A PUBLIC/IMAGES
+  const path = "/images/";
+  const capitulo1Ventana = `${path}capitulo1_ventana.jpg`;
+  const backIcon = `${path}back.svg`;
+
   // Creamos un estado para la imagen activa en el slider.
   const [currentImage, setCurrentImage] = useState(0);
 

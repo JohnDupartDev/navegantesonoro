@@ -4,32 +4,35 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { Link } from 'react-router-dom';
 
-// IMPORTACIÓN DE LOGOS
-import logoSalario from '../assets/image/logosalario.jpg';
-import logoArte from '../assets/image/logoarte.jpg';
+// CONFIGURACIÓN DE RUTAS ESTÁTICAS (Carpeta public/images/)
+const path = "/images/";
 
-// IMPORTACIÓN DE IMÁGENES - SALARIO
-import salarioImg from '../assets/image/salario.jpg';
-import salario1 from '../assets/image/salario1.jpg';
-import salario3 from '../assets/image/salario3.jpg';
-import salario4 from '../assets/image/salario4.jpg';
-import salario5 from '../assets/image/salario5.jpg';
-import salario6 from '../assets/image/salario6.jpg';
-import salario7 from '../assets/image/salario7.jpg';
-import salario8 from '../assets/image/salario8.jpg';
-import salario9 from '../assets/image/salario9.jpg';
+// LOGOS
+const logoSalario = `${path}logosalario.jpg`;
+const logoArte = `${path}logoarte.jpg`;
 
-// IMPORTACIÓN DE IMÁGENES - ARTENSAL
-import arteImg from '../assets/image/arte.jpg';
-import arte1 from '../assets/image/arte1.jpg';
-import arte3 from '../assets/image/arte3.jpg';
-import arte4 from '../assets/image/arte4.jpg';
-import arte5 from '../assets/image/arte5.jpg';
+// IMÁGENES - SALARIO
+const salarioImg = `${path}salario.jpg`;
+const salario1 = `${path}salario1.jpg`;
+const salario3 = `${path}salario3.jpg`;
+const salario4 = `${path}salario4.jpg`;
+const salario5 = `${path}salario5.jpg`;
+const salario6 = `${path}salario6.jpg`;
+const salario7 = `${path}salario7.jpg`;
+const salario8 = `${path}salario8.jpg`;
+const salario9 = `${path}salario9.jpg`;
+
+// IMÁGENES - ARTENSAL
+const arteImg = `${path}arte.jpg`;
+const arte1 = `${path}arte1.jpg`;
+const arte3 = `${path}arte3.jpg`;
+const arte4 = `${path}arte4.jpg`;
+const arte5 = `${path}arte5.jpg`;
 
 // Iconos Sociales
-import whatsappIcon from '../assets/image/whastapp.svg';
-import instagramIcon from '../assets/image/instagram.png';
-import facebookIcon from '../assets/image/facebook.png';
+const whatsappIcon = `${path}whastapp.svg`;
+const instagramIcon = `${path}instagram.png`;
+const facebookIcon = `${path}facebook.png`;
 
 /* -------------------------------------------------------------------------- */
 /* ESTILOS INLINE (UX TIPO APP)                                               */

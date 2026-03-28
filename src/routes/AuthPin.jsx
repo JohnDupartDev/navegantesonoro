@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 const AuthPin = () => {
+  // 👉 DEFINIMOS LA RUTA ESTÁTICA A PUBLIC/IMAGES
+  const path = "/images/";
+
   const [pin, setPin] = useState('');
   const [error, setError] = useState('');
   const [attempts, setAttempts] = useState(0); // Contador de intentos fallidos
@@ -94,7 +97,7 @@ const AuthPin = () => {
       // Si el PIN es válido, guardamos en sessionStorage y redirigimos a "Mi Cuenta"
       sessionStorage.setItem('authenticated', 'true');
 
-      // Establecer la fecha de caducidad (5 minutos desde la autenticación)
+      // Establecer la fecha de caducidad
       setExpiration();
 
       // Marcar el PIN como utilizado
@@ -112,7 +115,8 @@ const AuthPin = () => {
   return (
     <div className="auth-container">
       <div className="auth-content">
-        <img src="/image/LOGONS.svg" alt="Logo" className="auth-logo" />
+        {/* USAMOS LA CONSTANTE PATH PARA EL LOGO */}
+        <img src={`${path}logonavegante.svg`} alt="Logo" className="auth-logo" />
         <h2>Bienvenid@</h2>
         <form onSubmit={handleSubmit} className="auth-form">
           <input

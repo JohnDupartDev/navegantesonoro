@@ -5,40 +5,40 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { Link } from 'react-router-dom';
 
 // IMPORTACIÓN DE IMÁGENES
-import tickettourLogo from '../assets/image/tickettour.jpg';
-import sintenedorLogo from '../assets/image/sintenedor.jpg';
-import ovejaLogo from '../assets/image/oveja.jpg';
-import amoraLogo from '../assets/image/amara.png';
-import almalogo from '../assets/image/almalogo.jpg';
-import logoandreabo from '../assets/image/logoandreabo.jpg';
+import tickettourLogo from '/images/tickettour.jpg';
+import sintenedorLogo from '/images/sintenedor.jpg';
+import ovejaLogo from '/images/oveja.jpg';
+import amoraLogo from '/images/amara.png';
+import almalogo from '/images/almalogo.jpg';
+import logoandreabo from '/images/logoandreabo.jpg';
 
 // Imágenes de Carruseles
-import sint from '../assets/image/sint.jpg';
-import sint1 from '../assets/image/sint1.jpg';
-import sint2 from '../assets/image/sint2.jpg';
-import ove from '../assets/image/ove.jpg';
-import ove1 from '../assets/image/ove1.jpg';
-import ove2 from '../assets/image/ove2.jpg';
-import ove3 from '../assets/image/ove3.jpg';
-import amora1 from '../assets/image/amora1.jpg';
-import amora2 from '../assets/image/amora2.jpg';
-import amora3 from '../assets/image/amora3.jpg';
-import almaImg from '../assets/image/ALMA.jpg';
-import alma1 from '../assets/image/alma1.jpg';
-import alma2 from '../assets/image/alma2.jpg';
-import alma4 from '../assets/image/alma4.jpg';
-import alma5 from '../assets/image/alma5.jpg';
-import almap from '../assets/image/almap.jpg';
-import almabe from '../assets/image/almabe.jpg';
-import andree from '../assets/image/andree.jpg';
-import andre1 from '../assets/image/andre1.jpg';
-import andre2 from '../assets/image/andre2.jpg';
-import andre3 from '../assets/image/andre3.jpg';
+import sint from '/images/sint.jpg';
+import sint1 from '/images/sint1.jpg';
+import sint2 from '/images/sint2.jpg';
+import ove from '/images/ove.jpg';
+import ove1 from '/images/ove1.jpg';
+import ove2 from '/images/ove2.jpg';
+import ove3 from '/images/ove3.jpg';
+import amora1 from '/images/amora1.jpg';
+import amora2 from '/images/amora2.jpg';
+import amora3 from '/images/amora3.jpg';
+import almaImg from '/images/ALMA.jpg';
+import alma1 from '/images/alma1.jpg';
+import alma2 from '/images/alma2.jpg';
+import alma4 from '/images/alma4.jpg';
+import alma5 from '/images/alma5.jpg';
+import almap from '/images/almap.jpg';
+import almabe from '/images/almabe.jpg';
+import andree from '/images/andree.jpg';
+import andre1 from '/images/andre1.jpg';
+import andre2 from '/images/andre2.jpg';
+import andre3 from '/images/andre3.jpg';
 
 // Iconos Sociales
-import whatsappIcon from '../assets/image/whastapp.svg';
-import instagramIcon from '../assets/image/instagram.png';
-import facebookIcon from '../assets/image/facebook.png';
+import whatsappIcon from '/images/whastapp.svg';
+import instagramIcon from '/images/instagram.png';
+import facebookIcon from '/images/facebook.png';
 
 /* -------------------------------------------------------------------------- */
 /* ESTILOS INLINE (UX TIPO APP)                                               */

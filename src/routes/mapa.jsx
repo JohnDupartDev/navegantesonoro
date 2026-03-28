@@ -4,6 +4,9 @@ import Historia from "../routes/historia"
 
 
 const RutaSonora = () => {
+  // 👉 DEFINIMOS LA RUTA ESTÁTICA A PUBLIC/IMAGES
+  const path = "/images/";
+
   return (
 
 
@@ -17,7 +20,7 @@ const RutaSonora = () => {
       {/* Imagen del mapa */}
       <div className="mapa-section">
         <img
-          src="image/mapars.jpg"
+          src={`${path}mapars.jpg`}
           alt="Ruta Sonora"
           className="mapa-imagen"
         />
@@ -75,7 +78,7 @@ const RutaSonora = () => {
         {/* Mapa interactivo */}
         <div className="ruta-imagen-container">
           <img
-            src="image/imgmapars.jpg" // Cambia esta ruta por la imagen que desees mostrar
+            src={`${path}imgmapars.jpg`} // Cambia esta ruta por la imagen que desees mostrar
             alt="Imagen Mapa"
             className="mapa-imagen-interactiva"
           />

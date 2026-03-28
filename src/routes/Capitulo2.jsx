@@ -4,17 +4,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { Link } from 'react-router-dom';
 
-// IMPORTACIÓN DE IMÁGENES
-import logodoce from '../assets/image/logodoce.jpg';
-import doce from '../assets/image/doce.jpg';
-import doce1 from '../assets/image/doce1.jpg';
-import doce2 from '../assets/image/doce2.jpg';
-import doce4 from '../assets/image/doce4.jpg';
+// IMPORTACIÓN DE IMÁGENES (Ruta directa a public/images/)
+const path = "/images/";
+const logodoce = `${path}logodoce.jpg`;
+const doce = `${path}doce.jpg`;
+const doce1 = `${path}doce1.jpg`;
+const doce2 = `${path}doce2.jpg`;
+const doce4 = `${path}doce4.jpg`;
 
 // Iconos Sociales
-import whatsappIcon from '../assets/image/whastapp.svg';
-import instagramIcon from '../assets/image/instagram.png';
-import facebookIcon from '../assets/image/facebook.png';
+const whatsappIcon = `${path}whastapp.svg`;
+const instagramIcon = `${path}instagram.png`;
+const facebookIcon = `${path}facebook.png`;
 
 /* -------------------------------------------------------------------------- */
 /* ESTILOS INLINE (UX TIPO APP)                                               */

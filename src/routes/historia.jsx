@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom"; // Importa Link de react-router-dom
 
 const Historia = () => {
+  // 👉 DEFINIMOS LA RUTA ESTÁTICA A PUBLIC/IMAGES
+  const path = "/images/";
+
   return (
     <div className="historia-container">
       {/* Título principal */}
@@ -21,7 +24,7 @@ const Historia = () => {
           <h2 className="historia-section-title">Sinopsis</h2>
           <div className="historia-flex">
             <img
-              src="/image/signosis.jpg" // Cambia esta ruta a la de tu imagen
+              src={`${path}signosis.jpg`} // Ruta actualizada con la constante path
               alt="Portada Ruta Sonora"
               className="historia-image"
             />
@@ -40,7 +43,7 @@ const Historia = () => {
           <h2 className="historia-section-title">Storyline</h2>
           <div className="historia-flex">
             <img
-              src="/image/caricatura-navegante.png" // Cambia esta ruta a la de tu imagen
+              src={`${path}caricatura-navegante.png`} // Ruta actualizada con la constante path
               alt="Ilustración Storyline"
               className="historia-image"
             />
@@ -60,7 +63,7 @@ const Historia = () => {
         <section className="historia-section">
           <h2 className="historia-section-title">Tagline</h2>
           <img
-              src="/image/libros-nso.png" // Cambia esta ruta a la de tu imagen
+              src={`${path}libros-nso.png`} // Ruta actualizada con la constante path
               alt="Ilustración Storyline"
               className="historia-image"
             />

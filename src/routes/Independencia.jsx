@@ -3,15 +3,17 @@ import '../../src/index.css';
 import Rutaindependencia from '../assets/component/Rutaindependencia.jsx';
 
 function Independencia() {
+  // 👉 DEFINIMOS LA RUTA ESTÁTICA A PUBLIC/IMAGES
+  const path = "/images/";
+
   // Creamos un estado para la imagen activa en el slider.
   const [currentImage, setCurrentImage] = useState(0);
   
-  // Lista de imágenes que estarán en el slider
+  // Lista de imágenes que estarán en el slider (Actualizadas a /images/)
   const images = [
-    '/image/farolinde.jpg',
-    '/image/capitulo4_antonio.jpg',
-    '/image/capitulo4_boyaca.jpg'
-   
+    `${path}farolinde.jpg`,
+    `${path}capitulo4_antonio.jpg`,
+    `${path}capitulo4_boyaca.jpg`
   ];
 
   // Función para cambiar la imagen al siguiente
@@ -55,7 +57,7 @@ function Independencia() {
           id="volver"
         >
           <img
-            src="/image/back.svg" // Reemplaza con la ruta correcta a tu SVG
+            src={`${path}back.svg`} // Ruta actualizada a /images/
             alt="Icono"
             style={{ width: '12px', height: '12px', marginRight: '5px' }} // Ajusta el tamaño y espaciado
           />

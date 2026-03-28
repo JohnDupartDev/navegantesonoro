@@ -3,18 +3,19 @@ import '../../src/index.css';
 import RutaFunzipa from '../assets/component/RutaFunzipa.jsx';
 
 function Funzipa() {
+  // 👉 DEFINIMOS LA RUTA ESTÁTICA A PUBLIC/IMAGES
+  const path = "/images/";
+
   // Creamos un estado para la imagen activa en el slider.
   const [currentImage, setCurrentImage] = useState(0);
   
-  // Lista de imágenes que estarán en el slider
+  // Lista de imágenes que estarán en el slider (Actualizadas a /images/)
   const images = [
-    '/image/letrero.jpg',
-    '/image/nacisal.jpg',
-    '/image/horno.jpg',
-    '/image/capitulo5_farol.jpg',
-     '/image/capitulo5_sillas.jpg',
-
-
+    `${path}letrero.jpg`,
+    `${path}nacisal.jpg`,
+    `${path}horno.jpg`,
+    `${path}capitulo5_farol.jpg`,
+    `${path}capitulo5_sillas.jpg`,
   ];
 
   // Función para cambiar la imagen al siguiente
@@ -58,7 +59,7 @@ function Funzipa() {
           id="volver"
         >
           <img
-            src="/image/back.svg" // Reemplaza con la ruta correcta a tu SVG
+            src={`${path}back.svg`} // Ruta actualizada a /images/
             alt="Icono"
             style={{ width: '12px', height: '12px', marginRight: '5px' }} // Ajusta el tamaño y espaciado
           />

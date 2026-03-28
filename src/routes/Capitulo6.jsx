@@ -2,29 +2,32 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-// IMPORTACIÓN DE LOGOS
-import logoDesal from '../assets/image/logodsal.jpg';
-import logoSandu from '../assets/image/logosandu.jpg';
+// CONFIGURACIÓN DE RUTAS ESTÁTICAS (Carpeta public/images/)
+const path = "/images/";
 
-// IMPORTACIÓN DE IMÁGENES - DESAL
-import desalImg from '../assets/image/desal.jpg';
-import dsal1 from '../assets/image/dsal1.jpg';
-import dsal3 from '../assets/image/dsal3.jpg';
-import dsal4 from '../assets/image/dsal4.jpg';
-import dsal5 from '../assets/image/dsal5.jpg';
-import dsal6 from '../assets/image/dsal6.jpg';
-import dsal7 from '../assets/image/dsal7.jpg';
+// LOGOS
+const logoDesal = `${path}logodsal.jpg`;
+const logoSandu = `${path}logosandu.jpg`;
 
-// IMPORTACIÓN DE IMÁGENES - SANDWICHEROS
-import sa1 from '../assets/image/sa1.jpg';
-import sa2 from '../assets/image/sa2.jpg';
-import sanduImg from '../assets/image/sandu.jpg';
-import sa3 from '../assets/image/sa3.jpg';
+// IMÁGENES - DESAL
+const desalImg = `${path}desal.jpg`;
+const dsal1 = `${path}dsal1.jpg`;
+const dsal3 = `${path}dsal3.jpg`;
+const dsal4 = `${path}dsal4.jpg`;
+const dsal5 = `${path}dsal5.jpg`;
+const dsal6 = `${path}dsal6.jpg`;
+const dsal7 = `${path}dsal7.jpg`;
+
+// IMÁGENES - SANDWICHEROS
+const sa1 = `${path}sa1.jpg`;
+const sa2 = `${path}sa2.jpg`;
+const sanduImg = `${path}sandu.jpg`;
+const sa3 = `${path}sa3.jpg`;
 
 // Iconos Sociales
-import whatsappIcon from '../assets/image/whastapp.svg';
-import instagramIcon from '../assets/image/instagram.png';
-import facebookIcon from '../assets/image/facebook.png';
+const whatsappIcon = `${path}whastapp.svg`;
+const instagramIcon = `${path}instagram.png`;
+const facebookIcon = `${path}facebook.png`;
 
 /* -------------------------------------------------------------------------- */
 /* ESTILOS INLINE (UX TIPO APP)                                               */

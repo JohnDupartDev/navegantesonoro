@@ -4,59 +4,58 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { Link } from 'react-router-dom';
 
-// IMPORTACIÓN DE LOGOS DE ALIADOS
-import logoCasaChorro from '../assets/image/LogoCasadelChorro.jpg';
-import logoFrancachela from '../assets/image/logofrancachela.jpg';
-import logoCacique from '../assets/image/logocacique.jpg';
-import logoCamino from '../assets/image/logocamino.jpg';
+// CONFIGURACIÓN DE RUTAS ESTÁTICAS (Carpeta public/images/)
+const path = "/images/";
 
-// IMPORTACIÓN DE IMÁGENES DE GALERÍA
-// Casa del Chorro
-import menuChorro from '../assets/image/menucasadelchorro.jpg';
+// LOGOS DE ALIADOS
+const logoCasaChorro = `${path}LogoCasadelChorro.jpg`;
+const logoFrancachela = `${path}logofrancachela.jpg`;
+const logoCacique = `${path}logocacique.jpg`;
+const logoCamino = `${path}logocamino.jpg`;
 
-// Francachela
-import franca from '../assets/image/franca.jpg';
-import franca1 from '../assets/image/franca1.jpg';
-import franca2 from '../assets/image/franca2.jpg';
-import franca3 from '../assets/image/franca3.jpg';
-import franca4 from '../assets/image/franca4.jpg';
-import franca5 from '../assets/image/franca5.jpg';
-import franca6 from '../assets/image/franca6.jpg';
-import franca7 from '../assets/image/franca7.jpg';
-import franca8 from '../assets/image/franca8.jpg';
+// IMÁGENES DE GALERÍA
+const menuChorro = `${path}menucasadelchorro.jpg`;
 
-// Cacique Real
-import caci from '../assets/image/caci.jpg';
-import caci1 from '../assets/image/caci1.jpg';
-import caci2 from '../assets/image/caci2.jpg';
-import caci3 from '../assets/image/caci3.jpg';
-import caci4 from '../assets/image/caci4.jpg';
-import caci5 from '../assets/image/caci5.jpg';
-import caci6 from '../assets/image/caci6.jpg';
-import casi7 from '../assets/image/casi7.jpg'; // Respetando nombre del archivo original
-import caci8 from '../assets/image/caci8.jpg';
-import caci9 from '../assets/image/caci9.jpg';
+const franca = `${path}franca.jpg`;
+const franca1 = `${path}franca1.jpg`;
+const franca2 = `${path}franca2.jpg`;
+const franca3 = `${path}franca3.jpg`;
+const franca4 = `${path}franca4.jpg`;
+const franca5 = `${path}franca5.jpg`;
+const franca6 = `${path}franca6.jpg`;
+const franca7 = `${path}franca7.jpg`;
+const franca8 = `${path}franca8.jpg`;
 
-// Camino de la Sal
-import hsal from '../assets/image/hsal.jpg';
-import hsal1 from '../assets/image/hsal1.jpg';
-import hsal2 from '../assets/image/hsal2.jpg';
-import hsal3 from '../assets/image/hsal3.jpg';
-import hsal4 from '../assets/image/hsal4.jpg';
-import hsal5 from '../assets/image/hsal5.jpg';
-import hsal6 from '../assets/image/hsal6.jpg';
-import hsal7 from '../assets/image/hsal7.jpg';
-import hsal8 from '../assets/image/hsal8.jpg';
-import hsal9 from '../assets/image/hsal9.jpg';
-import hsal10 from '../assets/image/hsal10.jpg';
-import hsal11 from '../assets/image/hsal11.jpg';
-import hsal12 from '../assets/image/hsal12.jpg';
-import hsal13 from '../assets/image/hsal13.jpg';
+const caci = `${path}caci.jpg`;
+const caci1 = `${path}caci1.jpg`;
+const caci2 = `${path}caci2.jpg`;
+const caci3 = `${path}caci3.jpg`;
+const caci4 = `${path}caci4.jpg`;
+const caci5 = `${path}caci5.jpg`;
+const caci6 = `${path}caci6.jpg`;
+const casi7 = `${path}casi7.jpg`;
+const caci8 = `${path}caci8.jpg`;
+const caci9 = `${path}caci9.jpg`;
+
+const hsal = `${path}hsal.jpg`;
+const hsal1 = `${path}hsal1.jpg`;
+const hsal2 = `${path}hsal2.jpg`;
+const hsal3 = `${path}hsal3.jpg`;
+const hsal4 = `${path}hsal4.jpg`;
+const hsal5 = `${path}hsal5.jpg`;
+const hsal6 = `${path}hsal6.jpg`;
+const hsal7 = `${path}hsal7.jpg`;
+const hsal8 = `${path}hsal8.jpg`;
+const hsal9 = `${path}hsal9.jpg`;
+const hsal10 = `${path}hsal10.jpg`;
+const hsal11 = `${path}hsal11.jpg`;
+const hsal12 = `${path}hsal12.jpg`;
+const hsal13 = `${path}hsal13.jpg`;
 
 // Iconos Sociales
-import whatsappIcon from '../assets/image/whastapp.svg';
-import instagramIcon from '../assets/image/instagram.png';
-import facebookIcon from '../assets/image/facebook.png';
+const whatsappIcon = `${path}whastapp.svg`;
+const instagramIcon = `${path}instagram.png`;
+const facebookIcon = `${path}facebook.png`;
 
 /* -------------------------------------------------------------------------- */
 /* ESTILOS INLINE PARA UX TIPO APP (Glassmorphism & Mobile)                   */
