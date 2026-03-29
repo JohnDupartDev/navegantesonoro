@@ -1,4 +1,3 @@
-
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
@@ -9,31 +8,19 @@ export default defineConfig({
   server: {
     port: 5012,
   },
-  // --- NUEVA SECCIÓN DE OPTIMIZACIÓN (BUILD) ---
+  // --- SECCIÓN DE BUILD ALINEADA PARA VERCEL Y MINDAR ---
   build: {
-    target: 'esnext', // Genera código más ligero para navegadores modernos
-    chunkSizeWarningLimit: 1600, // Aumentamos el límite de advertencia (opcional)
+    target: 'esnext', // Genera código compatible con navegadores modernos
+    chunkSizeWarningLimit: 2000, // Aumentamos el límite para manejar Three.js y MindAR
     rollupOptions: {
       output: {
-        // Esta función divide las librerías pesadas en archivos separados
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            // Separa React y el Router en su propio archivo "cacheable"
-            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom')) {
-              return 'react-vendor';
-            }
-            // Si usas librerías de animación o 3D instaladas por npm, agrégalas aquí:
-            if (id.includes('three') || id.includes('framer-motion')) {
-              return 'anim-vendor';
-            }
-            // El resto de node_modules va a un archivo genérico
-            return 'vendor';
-          }
-        },
+        // Eliminamos manualChunks personalizado para evitar errores de "undefined (reading IMAGE)"
+        // Esto asegura que el orden de carga de los scripts sea el correcto en producción.
+        manualChunks: undefined,
       },
     },
   },
-  // ---------------------------------------------
+  // -------------------------------------------------------
   plugins: [
     react(),
     VitePWA({
@@ -62,7 +49,7 @@ export default defineConfig({
         ],
       },
       workbox: {
-        // OJO: No agregues mp3 o mp4 aquí, o la app colapsará al intentar descargar todo.
+        // No agregamos mp3 o mp4 aquí para evitar colapsar la memoria del dispositivo
         globPatterns: ['**/*.{js,css,html,png,jpg,svg}'], 
         skipWaiting: true,
         clientsClaim: true,
@@ -81,13 +68,12 @@ export default defineConfig({
           },
           {
             // Cache para Audios (MP3) - Estrategia StaleWhileRevalidate
-            // Carga rápido si ya se escuchó, pero no bloquea la red
             urlPattern: /\.(?:mp3|wav|ogg)$/,
             handler: 'StaleWhileRevalidate',
             options: {
               cacheName: 'audio-cache',
               expiration: {
-                maxEntries: 10, // Solo guardamos los últimos 10 audios para no llenar la memoria del celular
+                maxEntries: 10, 
                 maxAgeSeconds: 7 * 24 * 60 * 60, // 7 días
               },
             },

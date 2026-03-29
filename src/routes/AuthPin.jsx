@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 const AuthPin = () => {
-  // 👉 DEFINIMOS LA RUTA ESTÁTICA A PUBLIC/IMAGES
-  const path = "/images/";
+  // 👉 RUTA MAESTRA DE CLOUDINARY (v1774738156)
+  const cloudPath = "https://res.cloudinary.com/dcpgesnzc/image/upload/f_auto,q_auto/v1774738156/";
 
   const [pin, setPin] = useState('');
   const [error, setError] = useState('');
@@ -115,8 +115,8 @@ const AuthPin = () => {
   return (
     <div className="auth-container">
       <div className="auth-content">
-        {/* USAMOS LA CONSTANTE PATH PARA EL LOGO */}
-        <img src={`${path}logonavegante.svg`} alt="Logo" className="auth-logo" />
+        {/* USAMOS LA RUTA DE CLOUDINARY PARA EL LOGO */}
+        <img src={`${cloudPath}logonavegante.svg`} alt="Logo" className="auth-logo" />
         <h2>Bienvenid@</h2>
         <form onSubmit={handleSubmit} className="auth-form">
           <input
