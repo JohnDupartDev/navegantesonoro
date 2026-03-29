@@ -8,22 +8,61 @@ import { CSS3DObject } from 'three/examples/jsm/renderers/CSS3DRenderer.js';
 function RutaEstacion() {
   useEffect(() => {
     const start = async () => {
-      // ✅ PASO 1: Verificación de seguridad y reintento si MindAR no ha cargado
+      
+      // 👉 PASO 1: Definimos primero la creación de botones y la interfaz
+      // Esto DEBE ejecutarse siempre para que el usuario vea el botón "Iniciar"
+      const createVideoSelectionButtons = () => {
+        const arContainer = document.querySelector("#ar-conteiner");
+        // Evitamos duplicar el botón si la función se reintenta
+        if (!arContainer || document.querySelector(".ButtonCla")) return;
+
+        const container = document.createElement('div');
+        container.className = 'video-selection-buttons';
+
+        const buttonSpanish = document.createElement('button');
+        buttonSpanish.textContent = 'Iniciar';
+        buttonSpanish.classList.add('ButtonCla');
+        buttonSpanish.addEventListener('click', () => {
+          loadAndShowVideo('https://res.cloudinary.com/dcpgesnzc/video/upload/v1774736856/zcbc70rn4vet9l4g1dp3.mp4'); 
+          adjustContainerStyle(); 
+        });
+
+        container.appendChild(buttonSpanish);
+        arContainer.appendChild(container);
+      };
+
+      const adjustContainerStyle = () => {
+        const arContainer = document.querySelector("#ar-conteiner");
+        const starts = document.querySelector("#starts");
+        const volver = document.querySelector("#volver");
+        const ardiv = document.querySelector("#ardiv");
+        const btn = document.querySelector(".ButtonCla");
+
+        if (arContainer) arContainer.style.background = "none";
+        if (starts) starts.style.display = "flex";
+        if (volver) volver.style.display = "none";
+        if (ardiv) ardiv.style.display = "none";
+        if (btn) btn.style.display = "none";
+      };
+
+      // Invocamos la creación de botones inmediatamente
+      createVideoSelectionButtons();
+
+      // 👉 PASO 2: Ahora sí, verificación de MindAR para la lógica 3D
       if (!window.MINDAR || !window.MINDAR.IMAGE) {
-        console.log("MindAR no detectado en RutaEstacion, reintentando...");
-        setTimeout(start, 200); 
+        console.log("MindAR no detectado aún, reintentando lógica 3D...");
+        setTimeout(start, 500); 
         return;
       }
 
-      // ✅ PASO 2: Definimos THREE localmente ahora que sabemos que existe
+      // ✅ Definimos THREE localmente ahora que sabemos que existe
       const THREE = window.MINDAR.IMAGE.THREE;
 
       const spinner = document.getElementById("spinner");
-      if (spinner) spinner.style.display = "block";
-
+      // No mostramos el spinner hasta que se le dé clic a iniciar para no bloquear la vista
+      
       const mindarThree = new window.MINDAR.IMAGE.MindARThree({
         container: document.querySelector("#ar-conteiner"),
-        // URL de Cloudinary para el archivo .mind del Capítulo 1
         imageTargetSrc: 'https://res.cloudinary.com/dcpgesnzc/raw/upload/v1774737805/capitulo1.mind',
       });
 
@@ -31,7 +70,8 @@ function RutaEstacion() {
 
       const loadAndShowVideo = async (videoUrl) => {
         try {
-          // 👉 CREACIÓN MANUAL DEL ELEMENTO DE VIDEO PARA EVITAR ERROR DE CORS
+          if (spinner) spinner.style.display = "block";
+
           const video = document.createElement("video");
           video.setAttribute('crossorigin', 'anonymous');
           video.setAttribute('webkit-playsinline', 'true');
@@ -39,7 +79,6 @@ function RutaEstacion() {
           video.src = videoUrl;
           video.load();
 
-          // Esperamos a que el video esté listo para ser usado como textura
           await new Promise((resolve) => {
             video.oncanplaythrough = () => resolve();
           });
@@ -61,7 +100,6 @@ function RutaEstacion() {
           const plane2 = new THREE.Mesh(geometry, material);
           plane2.geometry.scale(1, 1, 1);
 
-
           const anchore = mindarThree.addAnchor(0);  
           anchore.group.add(plane);
           
@@ -71,7 +109,6 @@ function RutaEstacion() {
           const anchores = mindarThree.addAnchor(2);  
           anchores.group.add(plane2);
 
-          // 👉 LÓGICA DE PERSISTENCIA: El video sigue sonando aunque se pierda la imagen
           const handlePlay = () => {
             if (video.paused) {
               video.play().catch(e => console.error("Error al reproducir:", e));
@@ -82,7 +119,6 @@ function RutaEstacion() {
           anchore.onTargetFound = handlePlay;
           anchores.onTargetFound = handlePlay;
 
-          // Eliminamos la pausa en onTargetLost para mantener el audio/video corriendo
           anchor.onTargetLost = () => {};
           anchore.onTargetLost = () => {};
           anchores.onTargetLost = () => {};
@@ -100,97 +136,50 @@ function RutaEstacion() {
             cssRenderer.render(cssScene, camera);
           });
         } catch (error) {
-          console.error("Error detallado cargando el video:", error);
+          console.error("Error detallado:", error);
           if (spinner) spinner.style.display = "none";
         }
       };
 
-      const createVideoSelectionButtons = () => {
-        const container = document.createElement('div');
-        container.className = 'video-selection-buttons';
-
-        const buttonSpanish = document.createElement('button');
-        buttonSpanish.textContent = 'Iniciar';
-        buttonSpanish.classList.add('ButtonCla');
-        buttonSpanish.addEventListener('click', () => {
-          // URL del video de Cloudinary para el Capítulo 1
-          loadAndShowVideo('https://res.cloudinary.com/dcpgesnzc/video/upload/v1774736856/zcbc70rn4vet9l4g1dp3.mp4'); 
-          adjustContainerStyle(); 
-        });
-
-        container.appendChild(buttonSpanish);
-        document.querySelector("#ar-conteiner").appendChild(container);
-      };
-
-      const adjustContainerStyle = () => {
-        const arContainer = document.querySelector("#ar-conteiner");
-        const starts = document.querySelector("#starts");
-        const volver = document.querySelector("#volver");
-        const ardiv = document.querySelector("#ardiv");
-        const btn = document.querySelector(".ButtonCla");
-
-        if (arContainer) arContainer.style.background = "none";
-        if (starts) starts.style.display = "flex";
-        if (volver) volver.style.display = "none";
-        if (ardiv) ardiv.style.display = "none";
-        if (btn) btn.style.display = "none";
-      };
-
-      // Contenido HTML en 3D con iconos de Cloudinary
+      // Contenido HTML en 3D (Iconos Sociales)
       const iconPath = "https://res.cloudinary.com/dcpgesnzc/image/upload/f_auto,q_auto/v1774738156/";
       const htmlContent = document.createElement('div');
       htmlContent.innerHTML = `
        <div class="ico icon ">
-       
           <div class='ic'>
             <div class="space gastro">
               <a class="flotar" href="https://wa.me/+573243314035" target="_blank">
-                          <img class="img-conteiner" src="${iconPath}whastapp.svg"/>
-                <span class="texticon"> WhastApp</span>
+                <img class="img-conteiner" src="${iconPath}whastapp.svg"/>
+                <span class="texticon"> WhatsApp</span>
               </a>
             </div>
-
             <div class="space hotel">
               <a class="flotar" href="https://www.instagram.com/navegantesonorocolombia/" target="_blank">
-                          <img class="img-conteiner" src="${iconPath}instagram.png"/>
+                <img class="img-conteiner" src="${iconPath}instagram.png"/>
                 <span class="texticon">Instagram</span>
               </a>
             </div>
-
             <div class="space planes">
               <a class="flotar" href="https://www.facebook.com/NaveganteSonoro" target="_blank">
-                          <img class="img-conteiner" src="${iconPath}facebook.png"/>
+                <img class="img-conteiner" src="${iconPath}facebook.png"/>
                 <span class="texticon">Facebook</span>
               </a>
             </div>
-            
           </div>
         </div>
-        
       `;
       
       const cssObject = new CSS3DObject(htmlContent.cloneNode(true));
       cssObject.position.set(0, -466, 0);
       cssObject.scale.set(2, 2, 2); 
      
-      const cssObject1 = new CSS3DObject(htmlContent.cloneNode(true));
-      cssObject1.position.set(0, -466, 0);
-      cssObject1.scale.set(2, 2, 2); 
-
-      const cssObject2 = new CSS3DObject(htmlContent.cloneNode(true));
-      cssObject2.position.set(0, -466, 0);
-      cssObject2.scale.set(2, 2, 2); 
-
-     
       const cssAnchore = mindarThree.addCSSAnchor(0);
       const cssAnchor = mindarThree.addCSSAnchor(1);
       const cssAnchores = mindarThree.addCSSAnchor(2);
       
       cssAnchore.group.add(cssObject);
-      cssAnchor.group.add(cssObject1);
-      cssAnchores.group.add(cssObject2);
-
-      createVideoSelectionButtons(); 
+      cssAnchor.group.add(cssObject.clone());
+      cssAnchores.group.add(cssObject.clone());
 
     };
 
