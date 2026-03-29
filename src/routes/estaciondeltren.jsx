@@ -3,15 +3,16 @@ import RutaEstacion from '../assets/component/RutaEstacion.jsx';
 import '../../src/index.css';
 
 function EstacionDelTren() {
-  // 👉 DEFINIMOS LA RUTA ESTÁTICA A PUBLIC/IMAGES
-  const path = "/images/";
-  const capitulo1Ventana = `${path}capitulo1_ventana.jpg`;
-  const backIcon = `${path}back.svg`;
+  // 👉 RUTA MAESTRA DE CLOUDINARY PARA IMÁGENES (v1774738156)
+  const cloudPath = "https://res.cloudinary.com/dcpgesnzc/image/upload/f_auto,q_auto/v1774738156/";
+  
+  const capitulo1Ventana = `${cloudPath}capitulo1_ventana.jpg`;
+  const backIcon = `${cloudPath}back.svg`;
 
   // Creamos un estado para la imagen activa en el slider.
   const [currentImage, setCurrentImage] = useState(0);
 
-  // Lista de imágenes que estarán en el slider
+  // Lista de imágenes que estarán en el slider desde Cloudinary
   const images = [
     capitulo1Ventana,
   ];

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { loadVideo } from "./loader";
 import { CSS3DObject } from 'three/examples/jsm/renderers/CSS3DRenderer.js';
 
-// ❌ ELIMINADO: Ya no definimos THREE aquí afuera para evitar errores de 'undefined'
+// ❌ ELIMINADO: Ya no definimos THREE aquí afuera para evitar errores de 'undefined' en Vercel
 // const THREE = window.MINDAR.IMAGE.THREE;
 
 function RutaEstacion() {

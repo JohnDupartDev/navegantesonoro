@@ -2,22 +2,35 @@ import React, { useEffect } from 'react';
 import { loadVideo } from "./loader";
 import { CSS3DObject } from 'three/examples/jsm/renderers/CSS3DRenderer.js';
 
-const THREE = window.MINDAR.IMAGE.THREE;
+// ❌ ELIMINADO: Ya no definimos THREE aquí afuera para evitar que falle en el deploy de Vercel
+// const THREE = window.MINDAR.IMAGE.THREE;
 
-function Rutaindependencia() {
+function RutaCasa() {
   useEffect(() => {
     const start = async () => {
-      document.getElementById("spinner").style.display = "block";
+      // ✅ PASO 1: Verificación de seguridad y reintento si MindAR no ha cargado aún
+      if (!window.MINDAR || !window.MINDAR.IMAGE) {
+        console.log("Esperando a que MindAR cargue en el navegador...");
+        setTimeout(start, 200); 
+        return;
+      }
+
+      // ✅ PASO 2: Definimos THREE localmente ahora que sabemos que existe
+      const THREE = window.MINDAR.IMAGE.THREE;
+
+      const spinner = document.getElementById("spinner");
+      if (spinner) spinner.style.display = "block";
+
       const mindarThree = new window.MINDAR.IMAGE.MindARThree({
         container: document.querySelector("#ar-conteiner"),
-        // URL de Cloudinary para el archivo .mind del Capítulo 4
+        // URL de Cloudinary para el .mind del Capítulo 4
         imageTargetSrc: 'https://res.cloudinary.com/dcpgesnzc/raw/upload/v1774737820/capitulo4.mind',
       });
 
       const { renderer, cssRenderer, scene, cssScene, camera } = mindarThree;
 
       const loadAndShowVideo = async (videoUrl) => {
-        // 👉 CREACIÓN MANUAL DEL ELEMENTO DE VIDEO PARA EVITAR ERROR DE SEGURIDAD (CORS)
+        // 👉 USAMOS CREACIÓN MANUAL PARA EVITAR ERRORES DE CORS EN CLOUDINARY
         const video = document.createElement("video");
         video.setAttribute('crossorigin', 'anonymous');
         video.setAttribute('webkit-playsinline', 'true');
@@ -25,7 +38,6 @@ function Rutaindependencia() {
         video.src = videoUrl;
         video.load();
 
-        // Esperamos a que el video esté listo para ser usado como textura
         await new Promise((resolve) => {
           video.oncanplaythrough = () => resolve();
         });
@@ -56,7 +68,7 @@ function Rutaindependencia() {
         const anchores = mindarThree.addAnchor(2); 
         anchores.group.add(plane2);
 
-        // 👉 LÓGICA DE PERSISTENCIA: El video sigue sonando aunque se pierda la imagen
+        // 👉 LÓGICA DE PERSISTENCIA: El video NO se pausa al perder el target
         const handlePlay = () => {
           if (video.paused) {
             video.play().catch(e => console.error("Error al reproducir:", e));
@@ -67,7 +79,7 @@ function Rutaindependencia() {
         anchore.onTargetFound = handlePlay;
         anchores.onTargetFound = handlePlay;
 
-        // OnTargetLost vacío para que el audio y video sigan fluyendo
+        // OnTargetLost vacío para que el audio/video siga fluyendo
         anchor.onTargetLost = () => {};
         anchore.onTargetLost = () => {};
         anchores.onTargetLost = () => {};
@@ -78,7 +90,7 @@ function Rutaindependencia() {
         });
 
         await mindarThree.start();
-        document.getElementById("spinner").style.display = "none";
+        if (spinner) spinner.style.display = "none";
 
         renderer.setAnimationLoop(() => {
           renderer.render(scene, camera);
@@ -94,12 +106,22 @@ function Rutaindependencia() {
         buttonSpanish.textContent = 'Iniciar';
         buttonSpanish.classList.add('ButtonCla');
         buttonSpanish.addEventListener('click', () => {
-          // URL del video .mov de Cloudinary para el Capítulo 4
+          // URL de Cloudinary para el video .mov del Capítulo 4
+          loadAndShowVideo('https://res.cloudinary.com/dcpgesnzc/video/upload/v1774736925/vylc3xwrvrxzvqjosxyh.mov'); 
+          adjustContainerStyle(); 
+        });
+
+        const buttonEnglish = document.createElement('button');
+        buttonEnglish.textContent = 'English';
+        buttonEnglish.classList.add('ButtonClass');
+        buttonEnglish.addEventListener('click', () => {
           loadAndShowVideo('https://res.cloudinary.com/dcpgesnzc/video/upload/v1774736925/vylc3xwrvrxzvqjosxyh.mov'); 
           adjustContainerStyle(); 
         });
 
         container.appendChild(buttonSpanish);
+        // container.appendChild(buttonEnglish);
+
         document.querySelector("#ar-conteiner").appendChild(container);
       };
 
@@ -109,10 +131,9 @@ function Rutaindependencia() {
         document.querySelector("#volver").style.display = "none";
         document.querySelector("#ardiv").style.display = "none";
         const btn = document.querySelector(".ButtonCla");
-        if(btn) btn.style.display = "none";
+        if (btn) btn.style.display = "none";
       };
 
-      // Contenido HTML en 3D con iconos de Cloudinary
       const iconPath = "https://res.cloudinary.com/dcpgesnzc/image/upload/f_auto,q_auto/v1774738156/";
       const htmlContent = document.createElement('div');
       htmlContent.innerHTML = `
@@ -143,7 +164,7 @@ function Rutaindependencia() {
       const cssObject = new CSS3DObject(htmlContent.cloneNode(true));
       cssObject.position.set(0, -466, 0);
       cssObject.scale.set(2, 2, 2); 
-
+     
       const cssAnchore = mindarThree.addCSSAnchor(0);
       const cssAnchor = mindarThree.addCSSAnchor(1);
       const cssAnchores = mindarThree.addCSSAnchor(2);
@@ -161,4 +182,4 @@ function Rutaindependencia() {
   return null; 
 }
 
-export default Rutaindependencia;
+export default RutaCasa;
