@@ -2,12 +2,25 @@ import React, { useEffect } from 'react';
 import { loadVideo } from "./loader";
 import { CSS3DObject } from 'three/examples/jsm/renderers/CSS3DRenderer.js';
 
-const THREE = window.MINDAR.IMAGE.THREE;
+// ❌ ELIMINADO: Ya no definimos THREE aquí afuera para evitar errores de 'undefined'
+// const THREE = window.MINDAR.IMAGE.THREE;
 
 function RutaEstacion() {
   useEffect(() => {
     const start = async () => {
-      document.getElementById("spinner").style.display = "block";
+      // ✅ PASO 1: Verificación de seguridad y reintento si MindAR no ha cargado
+      if (!window.MINDAR || !window.MINDAR.IMAGE) {
+        console.log("MindAR no detectado en RutaEstacion, reintentando...");
+        setTimeout(start, 200); 
+        return;
+      }
+
+      // ✅ PASO 2: Definimos THREE localmente ahora que sabemos que existe
+      const THREE = window.MINDAR.IMAGE.THREE;
+
+      const spinner = document.getElementById("spinner");
+      if (spinner) spinner.style.display = "block";
+
       const mindarThree = new window.MINDAR.IMAGE.MindARThree({
         container: document.querySelector("#ar-conteiner"),
         // URL de Cloudinary para el archivo .mind del Capítulo 1
@@ -80,7 +93,7 @@ function RutaEstacion() {
           });
 
           await mindarThree.start();
-          document.getElementById("spinner").style.display = "none";
+          if (spinner) spinner.style.display = "none";
 
           renderer.setAnimationLoop(() => {
             renderer.render(scene, camera);
@@ -88,7 +101,7 @@ function RutaEstacion() {
           });
         } catch (error) {
           console.error("Error detallado cargando el video:", error);
-          document.getElementById("spinner").style.display = "none";
+          if (spinner) spinner.style.display = "none";
         }
       };
 
@@ -110,12 +123,17 @@ function RutaEstacion() {
       };
 
       const adjustContainerStyle = () => {
-        document.querySelector("#ar-conteiner").style.background = "none";
-        document.querySelector("#starts").style.display = "flex";
-        document.querySelector("#volver").style.display = "none";
-        document.querySelector("#ardiv").style.display = "none";
+        const arContainer = document.querySelector("#ar-conteiner");
+        const starts = document.querySelector("#starts");
+        const volver = document.querySelector("#volver");
+        const ardiv = document.querySelector("#ardiv");
         const btn = document.querySelector(".ButtonCla");
-        if(btn) btn.style.display = "none";
+
+        if (arContainer) arContainer.style.background = "none";
+        if (starts) starts.style.display = "flex";
+        if (volver) volver.style.display = "none";
+        if (ardiv) ardiv.style.display = "none";
+        if (btn) btn.style.display = "none";
       };
 
       // Contenido HTML en 3D con iconos de Cloudinary
@@ -167,6 +185,7 @@ function RutaEstacion() {
       const cssAnchore = mindarThree.addCSSAnchor(0);
       const cssAnchor = mindarThree.addCSSAnchor(1);
       const cssAnchores = mindarThree.addCSSAnchor(2);
+      
       cssAnchore.group.add(cssObject);
       cssAnchor.group.add(cssObject1);
       cssAnchores.group.add(cssObject2);
