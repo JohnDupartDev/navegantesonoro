@@ -29,7 +29,7 @@ function EstacionDelTren() {
 
   return (
     <>
-      <div id="ar-div">
+      <div id="ar-div" className='ar-div'>
         <div className="conteiner-btnstarts"></div>
         <div id="ar-conteiner">
           <div id="ardiv">
