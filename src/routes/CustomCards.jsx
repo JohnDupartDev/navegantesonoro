@@ -2,8 +2,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Asegúrate de importar Bootstr
 import { Link } from 'react-router-dom';
 
 const CustomCards = () => {
-  // Definimos la ruta base para las imágenes en la carpeta public
-  const path = "/images/";
+  // 👉 RUTA MAESTRA DE CLOUDINARY (v1774738156)
+  // Usamos f_auto y q_auto para que estas fotos de fondo carguen instantáneamente
+  const path = "https://res.cloudinary.com/dcpgesnzc/image/upload/f_auto,q_auto/v1774738156/";
 
   return (
     <div className="container px-1 " id="custom-cards">

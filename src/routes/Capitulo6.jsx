@@ -2,32 +2,34 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-// CONFIGURACIÓN DE RUTAS ESTÁTICAS (Carpeta public/images/)
-const path = "/images/";
+/* -------------------------------------------------------------------------- */
+/* CONFIGURACIÓN DE CLOUDINARY (RUTA MAESTRA FUNCIONAL)                        */
+/* -------------------------------------------------------------------------- */
+const cloudPath = "https://res.cloudinary.com/dcpgesnzc/image/upload/f_auto,q_auto/v1774738156/";
 
-// LOGOS
-const logoDesal = `${path}logodsal.jpg`;
-const logoSandu = `${path}logosandu.jpg`;
+// LOGOS DESDE CLOUDINARY
+const logoDesal = `${cloudPath}logodsal.jpg`;
+const logoSandu = `${cloudPath}logosandu.jpg`;
 
-// IMÁGENES - DESAL
-const desalImg = `${path}desal.jpg`;
-const dsal1 = `${path}dsal1.jpg`;
-const dsal3 = `${path}dsal3.jpg`;
-const dsal4 = `${path}dsal4.jpg`;
-const dsal5 = `${path}dsal5.jpg`;
-const dsal6 = `${path}dsal6.jpg`;
-const dsal7 = `${path}dsal7.jpg`;
+// IMÁGENES - DESAL DESDE CLOUDINARY
+const desalImg = `${cloudPath}desal.jpg`;
+const dsal1 = `${cloudPath}dsal1.jpg`;
+const dsal3 = `${cloudPath}dsal3.jpg`;
+const dsal4 = `${cloudPath}dsal4.jpg`;
+const dsal5 = `${cloudPath}dsal5.jpg`;
+const dsal6 = `${cloudPath}dsal6.jpg`;
+const dsal7 = `${cloudPath}dsal7.jpg`;
 
-// IMÁGENES - SANDWICHEROS
-const sa1 = `${path}sa1.jpg`;
-const sa2 = `${path}sa2.jpg`;
-const sanduImg = `${path}sandu.jpg`;
-const sa3 = `${path}sa3.jpg`;
+// IMÁGENES - SANDWICHEROS DESDE CLOUDINARY
+const sa1 = `${cloudPath}sa1.jpg`;
+const sa2 = `${cloudPath}sa2.jpg`;
+const sanduImg = `${cloudPath}sandu.jpg`;
+const sa3 = `${cloudPath}sa3.jpg`;
 
-// Iconos Sociales
-const whatsappIcon = `${path}whastapp.svg`;
-const instagramIcon = `${path}instagram.png`;
-const facebookIcon = `${path}facebook.png`;
+// Iconos Sociales desde Cloudinary
+const whatsappIcon = `${cloudPath}whastapp.svg`;
+const instagramIcon = `${cloudPath}instagram.png`;
+const facebookIcon = `${cloudPath}facebook.png`;
 
 /* -------------------------------------------------------------------------- */
 /* ESTILOS INLINE (UX TIPO APP)                                               */

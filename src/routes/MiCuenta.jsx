@@ -4,9 +4,12 @@ import { Link } from 'react-router-dom'; // Importa Link para navegación
 import Estacionesar from '../routes/Estacionesar';
 
 const MiCuenta = () => {
-  // 👉 DEFINIMOS LAS RUTAS ESTÁTICAS PARA PUBLIC
-  const path = "/images/";
-  const audioPath = "/audios/";
+  // 👉 DEFINIMOS LAS RUTAS DE CLOUDINARY
+  // Ruta para imágenes (v1774738156)
+  const imageCloudPath = "https://res.cloudinary.com/dcpgesnzc/image/upload/f_auto,q_auto/v1774738156/";
+  
+  // Ruta para audios (v1774740864) - Nota: Cloudinary usa /video/ para audios
+  const audioCloudPath = "https://res.cloudinary.com/dcpgesnzc/video/upload/v1774740864/";
 
   const navigate = useNavigate();
 
@@ -30,43 +33,43 @@ const MiCuenta = () => {
     }
   }, [navigate]);
 
-  // Datos de cada capítulo, incluyendo el archivo de audio
+  // Datos de cada capítulo, incluyendo el archivo de audio desde Cloudinary
   const capitulos = [
     {
-      imagen: `${path}imgc1.jpg`,
+      imagen: `${imageCloudPath}imgc1.jpg`,
       titulo: 'CAPÍTULO 1. ESTACIÓN DEL FERROCARRIL TRES ESQUINAS',
       descripcion: 'Luisa es obligada por su familia a viajar a Zipaquirá. A su llegada siente una atracción por un artista que vio en la Estación del Tren.',
-      audio: `${audioPath}Capitulo_1.mp3`, // Ruta del archivo de audio
+      audio: `${audioCloudPath}Capitulo_1.mp3`, 
     },
     {
-      imagen: `${path}imgc2.jpg`,
+      imagen: `${imageCloudPath}imgc2.jpg`,
       titulo: 'CAPÍTULO 2. CASA DE LAS NAVAS',
       descripcion: 'Antonio se dirige al encuentro con sus amigos artistas en el centro de Zipaquirá, y demuestra su tristeza por no haber podido hablar con la mujer de la Estación del Tren.',
-      audio: `${audioPath}Capitulo2.mp3`, // Ruta del archivo de audio
+      audio: `${audioCloudPath}Capitulo2.mp3`,
     },
     {
-      imagen: `${path}imgc3.jpg`,
+      imagen: `${imageCloudPath}imgc3.jpg`,
       titulo: 'CAPÍTULO 3. PLAZA PRINCIPAL',
       descripcion: 'Llega el domingo y con él la Santa Misa y la retreta ambientada en la Plaza Principal. Antonio está listo para tocar con la Banda Municipal. Las sorpresas no se harán esperar.',
-      audio: `${audioPath}Capitulo3.mp3`, // Ruta del archivo de audio
+      audio: `${audioCloudPath}Capitulo3.mp3`,
     },
     {
-      imagen: `${path}imgc4.jpg`,
+      imagen: `${imageCloudPath}imgc4.jpg`,
       titulo: 'CAPÍTULO 4. PLAZA DE LA INDEPENDENCIA E IGLESIA DE NUESTRA SEÑORA DE LOS DOLORES',
       descripcion: 'Todo está listo para el reencuentro entre Luisa y Antonio en el punto más alto del centro histórico de Zipaquirá.',
-      audio: `${audioPath}Capitulo4.mp3`,
+      audio: `${audioCloudPath}Capitulo4.mp3`,
     },
     {
-      imagen: `${path}imgc5.jpg`,
+      imagen: `${imageCloudPath}imgc5.jpg`,
       titulo: 'CAPÍTULO 5. ANTIGUO HORNO TRADICIONAL DE SAL',
       descripcion: 'Luisa no puede escapar de los acontecimientos políticos y económicos que vive Zipaquirá. Tendrá que decidir entre sus dos amores.',
-      audio: `${audioPath}Capitulo5.mp3`,
+      audio: `${audioCloudPath}Capitulo5.mp3`,
     },
     {
-      imagen: `${path}imgc6.jpg`,
+      imagen: `${imageCloudPath}imgc6.jpg`,
       titulo: 'CAPÍTULO 6. ALREDEDORES PARQUE DE LA SAL',
       descripcion: 'La verdad es revelada. Luisa y Antonio se enfrentan a sus mayores miedos.',
-      audio: `${audioPath}Capitulo6.mp3`,
+      audio: `${audioCloudPath}Capitulo6.mp3`,
     },
   ];
 
@@ -90,7 +93,7 @@ const MiCuenta = () => {
             </div>
             <div className="miCuenta-content">
               <h3 className="miCuenta-title">{capitulo.titulo}</h3>
-              <p className="miCuenta-description">{capitulo.description}</p>
+              <p className="miCuenta-description">{capitulo.descripcion}</p>
             </div>
           </div>
           {/* Reproductor de audio al final de la tarjeta */}

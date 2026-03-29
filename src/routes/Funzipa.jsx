@@ -3,19 +3,19 @@ import '../../src/index.css';
 import RutaFunzipa from '../assets/component/RutaFunzipa.jsx';
 
 function Funzipa() {
-  // 👉 DEFINIMOS LA RUTA ESTÁTICA A PUBLIC/IMAGES
-  const path = "/images/";
+  // 👉 RUTA MAESTRA DE CLOUDINARY (v1774738156)
+  const cloudPath = "https://res.cloudinary.com/dcpgesnzc/image/upload/f_auto,q_auto/v1774738156/";
 
   // Creamos un estado para la imagen activa en el slider.
   const [currentImage, setCurrentImage] = useState(0);
   
-  // Lista de imágenes que estarán en el slider (Actualizadas a /images/)
+  // Lista de imágenes que estarán en el slider desde Cloudinary
   const images = [
-    `${path}letrero.jpg`,
-    `${path}nacisal.jpg`,
-    `${path}horno.jpg`,
-    `${path}capitulo5_farol.jpg`,
-    `${path}capitulo5_sillas.jpg`,
+    `${cloudPath}letrero.jpg`,
+    `${cloudPath}nacisal.jpg`,
+    `${cloudPath}horno.jpg`,
+    `${cloudPath}capitulo5_farol.jpg`,
+    `${cloudPath}capitulo5_sillas.jpg`,
   ];
 
   // Función para cambiar la imagen al siguiente
@@ -59,7 +59,7 @@ function Funzipa() {
           id="volver"
         >
           <img
-            src={`${path}back.svg`} // Ruta actualizada a /images/
+            src={`${cloudPath}back.svg`} // Ruta actualizada a Cloudinary
             alt="Icono"
             style={{ width: '12px', height: '12px', marginRight: '5px' }} // Ajusta el tamaño y espaciado
           />

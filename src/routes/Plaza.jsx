@@ -3,16 +3,16 @@ import '../../src/index.css';
 import RutaPlaza from '../assets/component/RutaPlaza.jsx';
 
 function Plaza() {
-  // 👉 DEFINIMOS LA RUTA ESTÁTICA A PUBLIC/IMAGES
-  const path = "/images/";
+  // 👉 RUTA MAESTRA DE CLOUDINARY (v1774738156)
+  const cloudPath = "https://res.cloudinary.com/dcpgesnzc/image/upload/f_auto,q_auto/v1774738156/";
 
   // Creamos un estado para la imagen activa en el slider.
   const [currentImage, setCurrentImage] = useState(0);
   
-  // Lista de imágenes que estarán en el slider (Actualizadas a /images/)
+  // Lista de imágenes que estarán en el slider desde Cloudinary
   const images = [
-    `${path}capitulo3_alcaldia.jpg`,
-    `${path}capitulo3_catedral.jpg`,
+    `${cloudPath}capitulo3_alcaldia.jpg`,
+    `${cloudPath}capitulo3_catedral.jpg`,
   ];
 
   // Función para cambiar la imagen al siguiente
@@ -56,7 +56,7 @@ function Plaza() {
           id="volver"
         >
           <img
-            src={`${path}back.svg`} // Ruta actualizada a /images/
+            src={`${cloudPath}back.svg`} // Ruta actualizada a Cloudinary
             alt="Icono"
             style={{ width: '12px', height: '12px', marginRight: '5px' }} // Ajusta el tamaño y espaciado
           />

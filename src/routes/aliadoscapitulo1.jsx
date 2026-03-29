@@ -1,21 +1,29 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// Importaciones de imágenes desde assets/image
-import zipahostel from '../assets/image/zipahostel.jpg';
-import alma from '../assets/image/ALMA.jpg';
-import alma1 from '../assets/image/alma1.jpg';
-import alma2 from '../assets/image/alma2.jpg';
-import alma4 from '../assets/image/alma4.jpg';
-import alma5 from '../assets/image/alma5.jpg';
-import whatsappIcon from '../assets/image/whastapp.svg';
-import instagramIcon from '../assets/image/instagram.png';
-
 const Capitulo1 = () => {
+  // 👉 RUTA MAESTRA DE CLOUDINARY (v1774738156)
+  const cloudPath = "https://res.cloudinary.com/dcpgesnzc/image/upload/f_auto,q_auto/v1774738156/";
+
+  // Definición de recursos desde Cloudinary
+  const zipahostel = `${cloudPath}zipahostel.jpg`;
+  const alma = `${cloudPath}ALMA.jpg`;
+  const alma1 = `${cloudPath}alma1.jpg`;
+  const alma2 = `${cloudPath}alma2.jpg`;
+  const alma4 = `${cloudPath}alma4.jpg`;
+  const alma5 = `${cloudPath}alma5.jpg`;
+  const whatsappIcon = `${cloudPath}whastapp.svg`;
+  const instagramIcon = `${cloudPath}instagram.png`;
+
   return (
     <div className="d-flex flex-column align-items-center vh-100">
       <h1 className="text-center mt-5 text-uppercase fw-bold">Zipa Hostel</h1>
-      <img src={zipahostel} alt="Zipa Hostel" className="mt-3 mb-3 rounded" style={{ width: '80%', maxHeight: '300px', objectFit: 'cover' }} />
+      <img 
+        src={zipahostel} 
+        alt="Zipa Hostel" 
+        className="mt-3 mb-3 rounded" 
+        style={{ width: '80%', maxHeight: '300px', objectFit: 'cover' }} 
+      />
       <p className="text-justify px-4" style={{ textAlign: 'justify' }}>
         Ubicado en Zipaquirá Cundinamarca, a 40 km de Centro Comercial Unicentro, y ofrece mostrador de información turística, habitaciones libres de humo, jardín, wifi gratis en todo el alojamiento y salón de uso común. El alojamiento está a unos 46 km de Estadio El Campín, a 11 km de Parque Jaime Duque y a 32 km de Parque Deportivo 222. El alojamiento dispone de cocina compartida y recepción 24 horas.
         Todas las unidades de este alojamiento están equipadas con TV con canales por cable. En el hostal o pensión, todas las habitaciones disponen de ropa de cama y toallas.

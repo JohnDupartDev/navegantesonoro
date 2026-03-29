@@ -3,77 +3,107 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Error404 = () => {
-  // Estilos siguiendo la línea de diseño Apple/iOS Dark de Navegante Sonoro
   const styles = {
     container: {
-      background: 'linear-gradient(180deg, #1c1c1e 0%, #000000 100%)',
-      height: '100vh',
+      background: 'linear-gradient(180deg, #0f0f1a 0%, #000000 100%)',
+      minHeight: '100vh',
       display: 'flex',
-      flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
-      textAlign: 'center',
       padding: '20px',
       fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif',
-      color: '#f5f5f7'
+      overflow: 'hidden'
     },
+
+    content: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      textAlign: 'center',
+      maxWidth: '320px',
+      width: '100%',
+      gap: '16px', // 🔥 separa TODO automáticamente
+      position: 'relative',
+      zIndex: 1
+    },
+
+    ring: {
+      position: 'absolute',
+      width: '280px',
+      height: '280px',
+      borderRadius: '50%',
+      background: 'radial-gradient(circle, rgba(140,82,255,0.25) 0%, transparent 70%)',
+      filter: 'blur(30px)',
+      zIndex: 0
+    },
+
     errorCode: {
-      fontSize: '8rem',
+      fontSize: 'clamp(4rem, 18vw, 7rem)',
       fontWeight: '800',
       margin: '0',
-      background: 'linear-gradient(180deg, #ffc107 0%, #ff9800 100%)',
+      background: 'linear-gradient(180deg, #a855f7 0%, #6d28d9 100%)',
       WebkitBackgroundClip: 'text',
-      WebkitTextFillColor: 'transparent',
-      lineHeight: '1'
+      WebkitTextFillColor: 'transparent'
     },
+
     title: {
-      fontSize: '1.5rem',
+      fontSize: 'clamp(1.2rem, 4vw, 1.5rem)',
       fontWeight: '600',
-      marginTop: '20px',
-      maxWidth: '300px',
-      lineHeight: '1.3'
+      color: '#f5f5f7',
+      lineHeight: '1.4'
     },
+
     description: {
-      color: '#a1a1a6',
-      fontSize: '1rem',
-      marginTop: '10px',
-      marginBottom: '40px',
-      maxWidth: '280px'
+      color: '#b3b3cc',
+      fontSize: '0.95rem',
+      lineHeight: '1.4'
     },
+
     button: {
-      background: '#ffc107',
-      color: '#000',
-      padding: '12px 30px',
-      borderRadius: '50px',
+      marginTop: '10px', // 🔥 asegura que nunca se monte
+      background: 'linear-gradient(135deg, #a855f7, #6d28d9)',
+      color: '#fff',
+      padding: '12px 24px',
+      borderRadius: '40px',
       textDecoration: 'none',
       fontWeight: '700',
-      fontSize: '1rem',
-      boxShadow: '0 4px 15px rgba(255, 193, 7, 0.3)',
-      transition: 'transform 0.2s ease'
+      fontSize: '0.95rem',
+      boxShadow: '0 6px 20px rgba(168, 85, 247, 0.5)',
+      width: '100%',
+      maxWidth: '220px'
+    },
+
+    footer: {
+      position: 'absolute',
+      bottom: '20px',
+      fontSize: '0.7rem',
+      opacity: 0.3,
+      color: '#fff'
     }
   };
 
   return (
-    <div style={styles.container} className='error404'>
-      {/* Código de error visual */}
-      <h1 style={styles.errorCode}>404</h1>
-      
-      {/* Mensaje de error */}
-      <h2 style={styles.title}>
-        Upps, parece que lo que estás buscando no existe.
-      </h2>
-      
-      <p style={styles.description}>
-        Es posible que la dirección sea incorrecta o que la página se haya movido.
-      </p>
+    <div style={styles.container}>
 
-      {/* Botón de retorno con tu ID original */}
-      <Link id="volvereror" to='/' style={styles.button}>
-        Volver al Inicio
-      </Link>
+      <div style={styles.ring}></div>
 
-      {/* Marca de agua sutil en el pie */}
-      <div style={{ position: 'absolute', bottom: '30px', opacity: 0.3, fontSize: '0.8rem' }}>
+      <div style={styles.content}>
+        <h1 style={styles.errorCode}>404</h1>
+
+        <h2 style={styles.title}>
+          Upps, parece que lo que estás buscando no existe.
+        </h2>
+
+        <p style={styles.description}>
+          Es posible que la dirección sea incorrecta o que la página se haya movido.
+        </p>
+
+        <Link to="/" style={styles.button}>
+          Volver al Inicio
+        </Link>
+      </div>
+
+      <div style={styles.footer}>
         Navegante Sonoro ®
       </div>
     </div>

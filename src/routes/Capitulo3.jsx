@@ -4,18 +4,22 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { Link } from 'react-router-dom';
 
-// IMPLEMENTACIÓN DE RUTAS ESTÁTICAS (Carpeta public/images/)
-const path = "/images/";
-const logodoce = `${path}logodoce.jpg`;
-const doce = `${path}doce.jpg`;
-const doce1 = `${path}doce1.jpg`;
-const doce2 = `${path}doce2.jpg`;
-const doce4 = `${path}doce4.jpg`;
+/* -------------------------------------------------------------------------- */
+/* CONFIGURACIÓN DE CLOUDINARY (RUTA MAESTRA FUNCIONAL)                        */
+/* -------------------------------------------------------------------------- */
+const cloudPath = "https://res.cloudinary.com/dcpgesnzc/image/upload/f_auto,q_auto/v1774738156/";
+
+// IMPLEMENTACIÓN DE RUTAS DESDE CLOUDINARY
+const logodoce = `${cloudPath}logodoce.jpg`;
+const doce = `${cloudPath}doce.jpg`;
+const doce1 = `${cloudPath}doce1.jpg`;
+const doce2 = `${cloudPath}doce2.jpg`;
+const doce4 = `${cloudPath}doce4.jpg`;
 
 // Iconos Sociales
-const whatsappIcon = `${path}whastapp.svg`;
-const instagramIcon = `${path}instagram.png`;
-const facebookIcon = `${path}facebook.png`;
+const whatsappIcon = `${cloudPath}whastapp.svg`;
+const instagramIcon = `${cloudPath}instagram.png`;
+const facebookIcon = `${cloudPath}facebook.png`;
 
 /* -------------------------------------------------------------------------- */
 /* ESTILOS INLINE (UX TIPO APP)                                               */

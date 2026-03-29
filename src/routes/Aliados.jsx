@@ -3,10 +3,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CustomCards from './CustomCards';
 
 const Hero = () => {
-  // Definimos la ruta base para las imágenes en la carpeta public
-  const path = "/images/";
-  const ondasSvg = `${path}ondas.svg`;
-  const imgAliados = `${path}img_aliados.jpg`;
+  // 👉 RUTA MAESTRA QUE YA FUNCIONA (v1774738156)
+  // Sin carpetas intermedias para evitar el error 404 que vimos en consola
+  const cloudPath = "https://res.cloudinary.com/dcpgesnzc/image/upload/v1774738156/";
+  
+  const ondasSvg = `${cloudPath}ondas.svg`;
+  const imgAliados = `${cloudPath}img_aliados.jpg`;
 
   // Estilos en objeto para mantener el código limpio y simular clases de CSS-in-JS
   const styles = {

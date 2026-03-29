@@ -4,41 +4,46 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { Link } from 'react-router-dom';
 
-// IMPORTACIÓN DE IMÁGENES
-import tickettourLogo from '/images/tickettour.jpg';
-import sintenedorLogo from '/images/sintenedor.jpg';
-import ovejaLogo from '/images/oveja.jpg';
-import amoraLogo from '/images/amara.png';
-import almalogo from '/images/almalogo.jpg';
-import logoandreabo from '/images/logoandreabo.jpg';
+/* -------------------------------------------------------------------------- */
+/* CONFIGURACIÓN DE CLOUDINARY (RUTA MAESTRA FUNCIONAL)                        */
+/* -------------------------------------------------------------------------- */
+const cloudPath = "https://res.cloudinary.com/dcpgesnzc/image/upload/f_auto,q_auto/v1774738156/";
+
+// DEFINICIÓN DE RUTAS DE IMÁGENES DESDE CLOUDINARY
+const tickettourLogo = `${cloudPath}tickettour.jpg`;
+const sintenedorLogo = `${cloudPath}sintenedor.jpg`;
+const ovejaLogo = `${cloudPath}oveja.jpg`;
+const amoraLogo = `${cloudPath}amara.png`;
+const almalogo = `${cloudPath}almalogo.jpg`;
+const logoandreabo = `${cloudPath}logoandreabo.jpg`;
 
 // Imágenes de Carruseles
-import sint from '/images/sint.jpg';
-import sint1 from '/images/sint1.jpg';
-import sint2 from '/images/sint2.jpg';
-import ove from '/images/ove.jpg';
-import ove1 from '/images/ove1.jpg';
-import ove2 from '/images/ove2.jpg';
-import ove3 from '/images/ove3.jpg';
-import amora1 from '/images/amora1.jpg';
-import amora2 from '/images/amora2.jpg';
-import amora3 from '/images/amora3.jpg';
-import almaImg from '/images/ALMA.jpg';
-import alma1 from '/images/alma1.jpg';
-import alma2 from '/images/alma2.jpg';
-import alma4 from '/images/alma4.jpg';
-import alma5 from '/images/alma5.jpg';
-import almap from '/images/almap.jpg';
-import almabe from '/images/almabe.jpg';
-import andree from '/images/andree.jpg';
-import andre1 from '/images/andre1.jpg';
-import andre2 from '/images/andre2.jpg';
-import andre3 from '/images/andre3.jpg';
+const sint = `${cloudPath}sint.jpg`;
+const sint1 = `${cloudPath}sint1.jpg`;
+const sint2 = `${cloudPath}sint2.jpg`;
+const ove = `${cloudPath}ove.jpg`;
+const ove1 = `${cloudPath}ove1.jpg`;
+const ove2 = `${cloudPath}ove2.jpg`;
+const ove3 = `${cloudPath}ove3.jpg`;
+const amora1 = `${cloudPath}amora1.jpg`;
+const amora2 = `${cloudPath}amora2.jpg`;
+const amora3 = `${cloudPath}amora3.jpg`;
+const almaImg = `${cloudPath}ALMA.jpg`;
+const alma1 = `${cloudPath}alma1.jpg`;
+const alma2 = `${cloudPath}alma2.jpg`;
+const alma4 = `${cloudPath}alma4.jpg`;
+const alma5 = `${cloudPath}alma5.jpg`;
+const almap = `${cloudPath}almap.jpg`;
+const almabe = `${cloudPath}almabe.jpg`;
+const andree = `${cloudPath}andree.jpg`;
+const andre1 = `${cloudPath}andre1.jpg`;
+const andre2 = `${cloudPath}andre2.jpg`;
+const andre3 = `${cloudPath}andre3.jpg`;
 
 // Iconos Sociales
-import whatsappIcon from '/images/whastapp.svg';
-import instagramIcon from '/images/instagram.png';
-import facebookIcon from '/images/facebook.png';
+const whatsappIcon = `${cloudPath}whastapp.svg`;
+const instagramIcon = `${cloudPath}instagram.png`;
+const facebookIcon = `${cloudPath}facebook.png`;
 
 /* -------------------------------------------------------------------------- */
 /* ESTILOS INLINE (UX TIPO APP)                                               */

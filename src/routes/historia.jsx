@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom"; // Importa Link de react-router-dom
 
 const Historia = () => {
-  // 👉 DEFINIMOS LA RUTA ESTÁTICA A PUBLIC/IMAGES
-  const path = "/images/";
+  // 👉 RUTA MAESTRA DE CLOUDINARY (v1774739204 - La versión que confirmamos que funciona)
+  const cloudPath = "https://res.cloudinary.com/dcpgesnzc/image/upload/f_auto,q_auto/v1774739204/";
 
   return (
     <div className="historia-container">
@@ -24,7 +24,7 @@ const Historia = () => {
           <h2 className="historia-section-title">Sinopsis</h2>
           <div className="historia-flex">
             <img
-              src={`${path}signosis.jpg`} // Ruta actualizada con la constante path
+              src={`${cloudPath}signosis.jpg`} // Ruta actualizada con Cloudinary
               alt="Portada Ruta Sonora"
               className="historia-image"
             />
@@ -43,7 +43,7 @@ const Historia = () => {
           <h2 className="historia-section-title">Storyline</h2>
           <div className="historia-flex">
             <img
-              src={`${path}caricatura-navegante.png`} // Ruta actualizada con la constante path
+              src={`${cloudPath}caricatura-navegante.png`} // Ruta actualizada con Cloudinary
               alt="Ilustración Storyline"
               className="historia-image"
             />
@@ -63,7 +63,7 @@ const Historia = () => {
         <section className="historia-section">
           <h2 className="historia-section-title">Tagline</h2>
           <img
-              src={`${path}libros-nso.png`} // Ruta actualizada con la constante path
+              src={`${cloudPath}libros-nso.png`} // Ruta actualizada con Cloudinary
               alt="Ilustración Storyline"
               className="historia-image"
             />

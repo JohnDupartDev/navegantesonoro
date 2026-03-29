@@ -2,11 +2,14 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Alma = () => {
+  // 👉 RUTA MAESTRA DE CLOUDINARY (v1774738156)
+  const cloudPath = "https://res.cloudinary.com/dcpgesnzc/image/upload/f_auto,q_auto/v1774738156/";
+
   return (
     <div className="d-flex flex-column align-items-center alma1">
       <h1 className="text-center mt-5 text-uppercase fw-bold">Alma Coffee Bakery</h1>
       <img 
-        src="/image/almalogo.jpg" 
+        src={`${cloudPath}almalogo.jpg`} 
         alt="alma logo" 
         className="mt-3 mb-3 rounded" 
         style={{ width: '80%', maxHeight: '300px', objectFit: 'cover' }} 
@@ -51,7 +54,7 @@ const Alma = () => {
           {/* Slide 1 */}
           <div className="carousel-item active">
             <img 
-              src="/image/ALMA.jpg" 
+              src={`${cloudPath}ALMA.jpg`} 
               alt="Imagen 1" 
               className="d-block w-100 img-fluid rounded" 
             
@@ -61,7 +64,7 @@ const Alma = () => {
           {/* Slide 2 */}
           <div className="carousel-item">
             <img 
-              src="/image/alma1.jpg" 
+              src={`${cloudPath}alma1.jpg`} 
               alt="Imagen 2" 
               className="d-block w-100 img-fluid rounded" 
             
@@ -71,7 +74,7 @@ const Alma = () => {
           {/* Slide 3 */}
           <div className="carousel-item">
             <img 
-              src="/image/alma2.jpg" 
+              src={`${cloudPath}alma2.jpg`} 
               alt="Imagen 3" 
               className="d-block w-100 img-fluid rounded" 
             
@@ -81,7 +84,7 @@ const Alma = () => {
           {/* Slide 4 */}
           <div className="carousel-item">
             <img 
-              src="/image/alma4.jpg" 
+              src={`${cloudPath}alma4.jpg`} 
               alt="Imagen 4" 
               className="d-block w-100 img-fluid rounded" 
           
@@ -91,7 +94,7 @@ const Alma = () => {
           {/* Slide 5 */}
           <div className="carousel-item">
             <img 
-              src="/image/alma5.jpg" 
+              src={`${cloudPath}alma5.jpg`} 
               alt="Imagen 5" 
               className="d-block w-100 img-fluid rounded" 
             
@@ -112,10 +115,10 @@ const Alma = () => {
 
       <div className="d-flex justify-content-center align-items-center mt-1 gap-3">
         <a href="https://wa.me/+573222504227" target="_blank" rel="noopener noreferrer">
-          <img src="/image/whastapp.svg" alt="WhatsApp" width={40} height={40} />
+          <img src={`${cloudPath}whastapp.svg`} alt="WhatsApp" width={40} height={40} />
         </a>
         <a href="https://www.instagram.com/almacoffeebakery/" target="_blank" rel="noopener noreferrer">
-          <img src="/image/instagram.png" alt="Instagram" width={40} height={40} />
+          <img src={`${cloudPath}instagram.png`} alt="Instagram" width={40} height={40} />
         </a>
       </div>
     </div>

@@ -5,8 +5,11 @@ import { Link } from "react-router-dom"
 import { FaSignInAlt, FaBookReader, FaCommentDollar, FaUsers, FaMapMarkedAlt } from 'react-icons/fa';
 
 export default function index() {
-  // Definimos la ruta del logo apuntando a la carpeta public
-  const logoNavegantePath = "/images/logonavegante.svg";
+  // 👉 DEFINIMOS LA RUTA BASE DE TU CLOUDINARY (Ajustada con la versión que funciona)
+  const cloudPath = "https://res.cloudinary.com/dcpgesnzc/image/upload/f_auto,q_auto/v1774738156/";
+
+  // Definimos la ruta del logo original apuntando a Cloudinary
+  const logoNavegantePath = `${cloudPath}logonavegante.svg`;
 
   return (
     <div id="welcomeModal">
@@ -15,7 +18,7 @@ export default function index() {
           <a className="logo" href='https://navegantesonoro.com/'>
             <img 
               className='imglogo'            
-              src={logoNavegantePath} // Usamos la ruta directa de public
+              src={logoNavegantePath} // Cargando desde Cloudinary
               alt='logo_zipaquiardigital' 
               rel="noopener noreferrer"
             />

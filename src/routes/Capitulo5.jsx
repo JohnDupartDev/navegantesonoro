@@ -4,35 +4,37 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { Link } from 'react-router-dom';
 
-// CONFIGURACIÓN DE RUTAS ESTÁTICAS (Carpeta public/images/)
-const path = "/images/";
+/* -------------------------------------------------------------------------- */
+/* CONFIGURACIÓN DE CLOUDINARY (RUTA MAESTRA FUNCIONAL)                        */
+/* -------------------------------------------------------------------------- */
+const cloudPath = "https://res.cloudinary.com/dcpgesnzc/image/upload/f_auto,q_auto/v1774738156/";
 
-// LOGOS
-const logoSalario = `${path}logosalario.jpg`;
-const logoArte = `${path}logoarte.jpg`;
+// LOGOS DESDE CLOUDINARY
+const logoSalario = `${cloudPath}logosalario.jpg`;
+const logoArte = `${cloudPath}logoarte.jpg`;
 
-// IMÁGENES - SALARIO
-const salarioImg = `${path}salario.jpg`;
-const salario1 = `${path}salario1.jpg`;
-const salario3 = `${path}salario3.jpg`;
-const salario4 = `${path}salario4.jpg`;
-const salario5 = `${path}salario5.jpg`;
-const salario6 = `${path}salario6.jpg`;
-const salario7 = `${path}salario7.jpg`;
-const salario8 = `${path}salario8.jpg`;
-const salario9 = `${path}salario9.jpg`;
+// IMÁGENES - SALARIO DESDE CLOUDINARY
+const salarioImg = `${cloudPath}salario.jpg`;
+const salario1 = `${cloudPath}salario1.jpg`;
+const salario3 = `${cloudPath}salario3.jpg`;
+const salario4 = `${cloudPath}salario4.jpg`;
+const salario5 = `${cloudPath}salario5.jpg`;
+const salario6 = `${cloudPath}salario6.jpg`;
+const salario7 = `${cloudPath}salario7.jpg`;
+const salario8 = `${cloudPath}salario8.jpg`;
+const salario9 = `${cloudPath}salario9.jpg`;
 
-// IMÁGENES - ARTENSAL
-const arteImg = `${path}arte.jpg`;
-const arte1 = `${path}arte1.jpg`;
-const arte3 = `${path}arte3.jpg`;
-const arte4 = `${path}arte4.jpg`;
-const arte5 = `${path}arte5.jpg`;
+// IMÁGENES - ARTENSAL DESDE CLOUDINARY
+const arteImg = `${cloudPath}arte.jpg`;
+const arte1 = `${cloudPath}arte1.jpg`;
+const arte3 = `${cloudPath}arte3.jpg`;
+const arte4 = `${cloudPath}arte4.jpg`;
+const arte5 = `${cloudPath}arte5.jpg`;
 
-// Iconos Sociales
-const whatsappIcon = `${path}whastapp.svg`;
-const instagramIcon = `${path}instagram.png`;
-const facebookIcon = `${path}facebook.png`;
+// Iconos Sociales desde Cloudinary
+const whatsappIcon = `${cloudPath}whastapp.svg`;
+const instagramIcon = `${cloudPath}instagram.png`;
+const facebookIcon = `${cloudPath}facebook.png`;
 
 /* -------------------------------------------------------------------------- */
 /* ESTILOS INLINE (UX TIPO APP)                                               */

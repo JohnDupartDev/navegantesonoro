@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom"
 
 export default function comofunciona(){
-    // 👉 DEFINIMOS LA RUTA ESTÁTICA A PUBLIC/IMAGES
-    const path = "/images/";
+    // 👉 RUTA MAESTRA DE CLOUDINARY (v1774738156)
+    const cloudPath = "https://res.cloudinary.com/dcpgesnzc/image/upload/f_auto,q_auto/v1774738156/";
 
     return(
        
@@ -11,8 +11,8 @@ export default function comofunciona(){
                 <Link className="x" to='/'>X</Link>
             </div>
             <div className="imgg">
-                {/* Usamos la constante path para la imagen */}
-                <img className="telefono" src={`${path}comofunciona1.png`} alt="Como funciona etapa 1" />
+                {/* Usamos la constante cloudPath para la imagen desde Cloudinary */}
+                <img className="telefono" src={`${cloudPath}comofunciona1.png`} alt="Como funciona etapa 1" />
                 
                 <h1 className="hache1"> Presiona el botón Ruta Sonora</h1>
                 <h2 className="text-componet">

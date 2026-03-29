@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom'; // Importa Link para navegación
 
 const Comprar = () => {
+  // 👉 RUTA MAESTRA DE CLOUDINARY (v1774738156)
+  const cloudPath = "https://res.cloudinary.com/dcpgesnzc/image/upload/f_auto,q_auto/v1774738156/";
+
   // Datos de cada capítulo
   const capitulos = [
     {
-      imagen: '/images/comprobante.jpg',
+      imagen: `${cloudPath}comprobante.jpg`,
     
       descripcion: 'Luego de realizar el pago, envíanos tu comprobante de la transacción exitosa para tener acceso a tu cuenta de Navegante Sonoro.',
       enlace:'https://wa.me/573243314035?text=¡Hola! Envío mi comprobante de pago para acceder a la ruta sonora.',  // Enlace directo a WhatsApp con el número proporcionado
@@ -24,7 +27,7 @@ const Comprar = () => {
       {/* Imagen debajo del título */}
       <div className="image-container d-flex justify-content-center mb-2">
         <img 
-          src="/images/nedavi.jpg" 
+          src={`${cloudPath}nedavi.jpg`} 
           alt="Ruta Sonora" 
           className="img-fluid rounded" 
           style={{ maxWidth: '300px' }} 
@@ -43,7 +46,7 @@ const Comprar = () => {
           <p className="text-center text-white">Abre tu aplicación de Nequi y escanea este código</p>
           <div className="image-container d-flex justify-content-center align-items-center">
             <img 
-              src="/images/nequilaura.jpg" 
+              src={`${cloudPath}nequilaura.jpg`} 
               alt="QR Nequi" 
               className="img-fluid rounded mb-4" 
             />
@@ -53,7 +56,7 @@ const Comprar = () => {
           <p className="text-center text-white">Abre tu aplicación de Daviplata y escanea este código</p>
           <div className="image-container d-flex justify-content-center align-items-center">
             <img 
-              src="/images/daviplata.jpg" 
+              src={`${cloudPath}daviplata.jpg`} 
               alt="QR Daviplata" 
               className="img-fluid rounded" 
             />

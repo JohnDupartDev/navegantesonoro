@@ -3,16 +3,16 @@ import '../../src/index.css';
 import RutaCatedral from '../assets/component/RutaCatedral.jsx';
 
 function CasaNavas() {
-  // 👉 DEFINIMOS LA RUTA ESTÁTICA A PUBLIC/IMAGES
-  const path = "/images/";
+  // 👉 RUTA MAESTRA DE CLOUDINARY (v1774738156)
+  const cloudPath = "https://res.cloudinary.com/dcpgesnzc/image/upload/f_auto,q_auto/v1774738156/";
 
   // Creamos un estado para la imagen activa en el slider.
   const [currentImage, setCurrentImage] = useState(0);
   
-  // Lista de imágenes que estarán en el slider (Actualizadas a /images/)
+  // Lista de imágenes que estarán en el slider desde Cloudinary
   const images = [
-    `${path}capitulo6_egan.jpg`,
-    `${path}capitulo6_pila.jpg`,
+    `${cloudPath}capitulo6_egan.jpg`,
+    `${cloudPath}capitulo6_pila.jpg`,
   ];
 
   // Función para cambiar la imagen al siguiente
@@ -56,7 +56,7 @@ function CasaNavas() {
           id="volver"
         >
           <img
-            src={`${path}back.svg`} // Ruta actualizada a /images/
+            src={`${cloudPath}back.svg`} // Ruta actualizada a Cloudinary
             alt="Icono"
             style={{ width: '12px', height: '12px', marginRight: '5px' }} // Ajusta el tamaño y espaciado
           />

@@ -10,27 +10,43 @@ function RutaEstacion() {
       document.getElementById("spinner").style.display = "block";
       const mindarThree = new window.MINDAR.IMAGE.MindARThree({
         container: document.querySelector("#ar-conteiner"),
-        imageTargetSrc: '/image/capitulo1.mind',
+        // URL de Cloudinary para el archivo .mind del Capítulo 1
+        imageTargetSrc: 'https://res.cloudinary.com/dcpgesnzc/raw/upload/v1774737805/capitulo1.mind',
       });
 
       const { renderer, cssRenderer, scene, cssScene, camera } = mindarThree;
 
       const loadAndShowVideo = async (videoUrl) => {
         try {
-          const video = await loadVideo(videoUrl);
+          // 👉 CREACIÓN MANUAL DEL ELEMENTO DE VIDEO PARA EVITAR ERROR DE CORS
+          const video = document.createElement("video");
+          video.setAttribute('crossorigin', 'anonymous');
+          video.setAttribute('webkit-playsinline', 'true');
+          video.setAttribute('playsinline', 'true');
+          video.src = videoUrl;
+          video.load();
+
+          // Esperamos a que el video esté listo para ser usado como textura
+          await new Promise((resolve) => {
+            video.oncanplaythrough = () => resolve();
+          });
+
           const texture = new THREE.VideoTexture(video);
+          texture.minFilter = THREE.LinearFilter;
+          texture.magFilter = THREE.LinearFilter;
+          texture.format = THREE.RGBAFormat;
+
           const geometry = new THREE.PlaneGeometry(1, 1204 / 1980);
           const material = new THREE.MeshBasicMaterial({ map: texture });
-          material.map.minFilter = THREE.LinearFilter;
 
           const plane = new THREE.Mesh(geometry, material);
           plane.geometry.scale(1, 1, 1);
 
           const plane1 = new THREE.Mesh(geometry, material);
-          plane1.geometry.scale(1, 1, 1); // Corregido: antes escalabas 'plane'
+          plane1.geometry.scale(1, 1, 1);
 
           const plane2 = new THREE.Mesh(geometry, material);
-          plane2.geometry.scale(1, 1, 1); // Corregido: antes escalabas 'plane'
+          plane2.geometry.scale(1, 1, 1);
 
 
           const anchore = mindarThree.addAnchor(0);  
@@ -42,26 +58,21 @@ function RutaEstacion() {
           const anchores = mindarThree.addAnchor(2);  
           anchores.group.add(plane2);
 
-          anchor.onTargetFound = () => {
-            video.play().catch(e => console.error("Error al reproducir:", e));
-          };
-          anchor.onTargetLost = () => {
-            // Aquí puedes agregar lógica si lo necesitas
-          };
-
-          anchore.onTargetFound = () => {
-            video.play().catch(e => console.error("Error al reproducir:", e));
-          };
-          anchore.onTargetLost = () => {
-            // Aquí puedes agregar lógica si lo necesitas
+          // 👉 LÓGICA DE PERSISTENCIA: El video sigue sonando aunque se pierda la imagen
+          const handlePlay = () => {
+            if (video.paused) {
+              video.play().catch(e => console.error("Error al reproducir:", e));
+            }
           };
 
-          anchores.onTargetFound = () => {
-            video.play().catch(e => console.error("Error al reproducir:", e));
-          };
-          anchores.onTargetLost = () => {
-            // Aquí puedes agregar lógica si lo necesitas
-          };
+          anchor.onTargetFound = handlePlay;
+          anchore.onTargetFound = handlePlay;
+          anchores.onTargetFound = handlePlay;
+
+          // Eliminamos la pausa en onTargetLost para mantener el audio/video corriendo
+          anchor.onTargetLost = () => {};
+          anchore.onTargetLost = () => {};
+          anchores.onTargetLost = () => {};
 
           video.addEventListener('ended', () => {
             video.currentTime = 0;
@@ -77,7 +88,6 @@ function RutaEstacion() {
           });
         } catch (error) {
           console.error("Error detallado cargando el video:", error);
-          alert("No se pudo cargar el video. Verifica que el archivo existe en /public/videos/capitulo1ns.mp4");
           document.getElementById("spinner").style.display = "none";
         }
       };
@@ -90,25 +100,15 @@ function RutaEstacion() {
         buttonSpanish.textContent = 'Iniciar';
         buttonSpanish.classList.add('ButtonCla');
         buttonSpanish.addEventListener('click', () => {
-          loadAndShowVideo('/videos/capitulo1ns.mp4'); // Cargar video en español
-          adjustContainerStyle(); // Ajustar estilos del contenedor
-        });
-
-        const buttonEnglish = document.createElement('button');
-        buttonEnglish.textContent = 'English';
-        buttonEnglish.classList.add('ButtonClass');
-        buttonEnglish.addEventListener('click', () => {
-          loadAndShowVideo('/videos/capitulo1ns.mp4'); // Cargar video en inglés
-          adjustContainerStyle(); // Ajustar estilos del contenedor
+          // URL del video de Cloudinary para el Capítulo 1
+          loadAndShowVideo('https://res.cloudinary.com/dcpgesnzc/video/upload/v1774736856/zcbc70rn4vet9l4g1dp3.mp4'); 
+          adjustContainerStyle(); 
         });
 
         container.appendChild(buttonSpanish);
-        // container.appendChild(buttonEnglish);
-
         document.querySelector("#ar-conteiner").appendChild(container);
       };
 
-      // Función para ajustar estilos del contenedor
       const adjustContainerStyle = () => {
         document.querySelector("#ar-conteiner").style.background = "none";
         document.querySelector("#starts").style.display = "flex";
@@ -118,7 +118,8 @@ function RutaEstacion() {
         if(btn) btn.style.display = "none";
       };
 
-      // Crear y añadir el contenido HTML en 3D
+      // Contenido HTML en 3D con iconos de Cloudinary
+      const iconPath = "https://res.cloudinary.com/dcpgesnzc/image/upload/f_auto,q_auto/v1774738156/";
       const htmlContent = document.createElement('div');
       htmlContent.innerHTML = `
        <div class="ico icon ">
@@ -126,21 +127,21 @@ function RutaEstacion() {
           <div class='ic'>
             <div class="space gastro">
               <a class="flotar" href="https://wa.me/+573243314035" target="_blank">
-                          <img class="img-conteiner" src="/image/whastapp.svg"/>
+                          <img class="img-conteiner" src="${iconPath}whastapp.svg"/>
                 <span class="texticon"> WhastApp</span>
               </a>
             </div>
 
             <div class="space hotel">
               <a class="flotar" href="https://www.instagram.com/navegantesonorocolombia/" target="_blank">
-                          <img class="img-conteiner" src="/image/instagram.png"/>
+                          <img class="img-conteiner" src="${iconPath}instagram.png"/>
                 <span class="texticon">Instagram</span>
               </a>
             </div>
 
             <div class="space planes">
               <a class="flotar" href="https://www.facebook.com/NaveganteSonoro" target="_blank">
-                          <img class="img-conteiner" src="/image/facebook.png"/>
+                          <img class="img-conteiner" src="${iconPath}facebook.png"/>
                 <span class="texticon">Facebook</span>
               </a>
             </div>

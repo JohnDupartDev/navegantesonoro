@@ -3,17 +3,17 @@ import '../../src/index.css';
 import Rutaindependencia from '../assets/component/Rutaindependencia.jsx';
 
 function Independencia() {
-  // 👉 DEFINIMOS LA RUTA ESTÁTICA A PUBLIC/IMAGES
-  const path = "/images/";
+  // 👉 RUTA MAESTRA DE CLOUDINARY (v1774738156)
+  const cloudPath = "https://res.cloudinary.com/dcpgesnzc/image/upload/f_auto,q_auto/v1774738156/";
 
   // Creamos un estado para la imagen activa en el slider.
   const [currentImage, setCurrentImage] = useState(0);
   
-  // Lista de imágenes que estarán en el slider (Actualizadas a /images/)
+  // Lista de imágenes que estarán en el slider desde Cloudinary
   const images = [
-    `${path}farolinde.jpg`,
-    `${path}capitulo4_antonio.jpg`,
-    `${path}capitulo4_boyaca.jpg`
+    `${cloudPath}farolinde.jpg`,
+    `${cloudPath}capitulo4_antonio.jpg`,
+    `${cloudPath}capitulo4_boyaca.jpg`
   ];
 
   // Función para cambiar la imagen al siguiente
@@ -57,7 +57,7 @@ function Independencia() {
           id="volver"
         >
           <img
-            src={`${path}back.svg`} // Ruta actualizada a /images/
+            src={`${cloudPath}back.svg`} // Ruta actualizada a Cloudinary
             alt="Icono"
             style={{ width: '12px', height: '12px', marginRight: '5px' }} // Ajusta el tamaño y espaciado
           />
